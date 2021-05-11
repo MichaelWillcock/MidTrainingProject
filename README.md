@@ -14,7 +14,7 @@ I started by creating the entity relationship diagram for my database
 ![InitialERD](https://user-images.githubusercontent.com/81698105/117843585-d8e98600-b276-11eb-87a1-7cd74bde85f1.png)
 I then used this to create by database using the code first approach so that I can update the database later on if needed
 
-![CreatedDataBase](https://user-images.githubusercontent.com/81698105/117843634-e30b8480-b276-11eb-943d-6cd73b747c97.png)
+![Database](https://user-images.githubusercontent.com/81698105/117844867-f2d79880-b277-11eb-84f5-bed78580d17e.png)
 
 I then moved on to creating wireframes to get a better idea of what I would be creating upon using wpf
 (Insert Screenshots of wireframes)
