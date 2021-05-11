@@ -11,11 +11,14 @@ This was to gain an idea of all the work I would have to do in order to meet the
 Once this was completed I started working on setting up the framework that I would need later on in the project to create the application. This was detailed in the project backlog.
 I started by creating the entity relationship diagram for my database
 
-![InitialERD](https://user-images.githubusercontent.com/81698105/117843585-d8e98600-b276-11eb-87a1-7cd74bde85f1.png)
+![InitialERD](https://user-images.githubusercontent.com/81698105/117853421-4f3eb600-b280-11eb-9006-da83696a6757.png)
+
 I then used this to create by database using the code first approach so that I can update the database later on if needed
 
 ![Database](https://user-images.githubusercontent.com/81698105/117844867-f2d79880-b277-11eb-84f5-bed78580d17e.png)
 
 I then moved on to creating wireframes to get a better idea of what I would be creating upon using wpf
-(Insert Screenshots of wireframes)
+
+![WireFrames](https://user-images.githubusercontent.com/81698105/117853453-582f8780-b280-11eb-9cb3-47ac73502dd9.png)
+
 
