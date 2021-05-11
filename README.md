@@ -29,4 +29,12 @@ I then moved on to creating wireframes to get a better idea of what I would be c
 
 ![WireFrames](https://user-images.githubusercontent.com/81698105/117853453-582f8780-b280-11eb-9cb3-47ac73502dd9.png)
 
+I then created a wpf project within my solution called DnDCharacterBuilderGUI to complete sprint goal 1.4
+Finally I created a Business layer and test project to complete sprint goals 1.5 and 1.6
+
+#### Retrospective
+During this sprint I started well, the erd was fairly straightforward although did require some minor alterations after I started building the database in visual studio, this was to assign primary keys to the relevant tables otherwise I recieved syntax errors due to primary keys not being correctly allocated.
+The wireframes also started well with the exception of the used character sheet wireframe which, because of the amount of data that needs to be added to the page during character creation slowed down the process, it would have been easier to just add a simple block and label it "D&D 5e character sheet".
+
+The sprint goals for tomorrow are to focus on the user registration epic and code methods and create a gui so that a user can create an account that is then stored in the database.
 
