@@ -47,12 +47,6 @@ As a user I want to be able to register an account if I do not have one and then
 - [x] 1.3 Given a user has an account and wants to log in and enters the wrong password, when they click log in, they will be greeted with an error message informing them that they entered the wrong password and asking them to try again.
 
 # Sprint Timeline
-
-# Sprint Retrospective
-I had to reset the database at the start in order to change the primary keys of the tables to int values instead of strings so that they could be automatically incremeneted when a new account is made. I want to just alter the property but it required me to drop the column which given that they were the primary key, wouldn't work. This meant I had to delete and the recreate the entire database, which thanks to copypaste didn't take as long as in the first sprint but it was still time.
-The next delay was when I tried to add background music to the application. I spent an hour or so on this with no real progress and it wasn't part of the official sprint goals so I left it to focus on the main project outcomes.
-Learning how to use the pages for naigation was interesting and for the time being it appears to work well for the aims of the project. The creation of the registration system progressed smoothly and leaves room for extension if needed later on in the project. There was one minor hiccup with one of the if statements, but I quickly found the error after debugging through the code and resolved the issue.
-
 Once the main user stories were started upon, the work progressed smoothly. The basic functionality of the applciation can be seen in the following scrrenshots.
 
 ![ApplicationHome](https://user-images.githubusercontent.com/81698105/118011885-677a0800-b348-11eb-8ad3-15a9e129e7ec.png)
@@ -64,6 +58,11 @@ Once the main user stories were started upon, the work progressed smoothly. The 
 ![PasswordCheck](https://user-images.githubusercontent.com/81698105/118011946-7791e780-b348-11eb-8fc4-24c6c6efa65f.png)
 
 ![UserInterface](https://user-images.githubusercontent.com/81698105/118011960-7b256e80-b348-11eb-8943-7f6eb36cad1e.png)
+
+# Sprint Retrospective
+I had to reset the database at the start in order to change the primary keys of the tables to int values instead of strings so that they could be automatically incremeneted when a new account is made. I want to just alter the property but it required me to drop the column which given that they were the primary key, wouldn't work. This meant I had to delete and the recreate the entire database, which thanks to copypaste didn't take as long as in the first sprint but it was still time.
+The next delay was when I tried to add background music to the application. I spent an hour or so on this with no real progress and it wasn't part of the official sprint goals so I left it to focus on the main project outcomes.
+Learning how to use the pages for naigation was interesting and for the time being it appears to work well for the aims of the project. The creation of the registration system progressed smoothly and leaves room for extension if needed later on in the project. There was one minor hiccup with one of the if statements, but I quickly found the error after debugging through the code and resolved the issue.
 
 # Work left to do after standup
 - [ ] create unit tests for methods written for registration system. Note. Methods were all manually tested during creation so should pass with minimal alterations.
