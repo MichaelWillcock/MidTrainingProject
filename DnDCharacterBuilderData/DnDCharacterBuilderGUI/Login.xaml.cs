@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DnDCharacterBuilderBusiness;
+using DnDCharacterBuilderData;
 
 namespace DnDCharacterBuilderGUI
 {
@@ -20,6 +22,7 @@ namespace DnDCharacterBuilderGUI
     /// </summary>
     public partial class Login : Page
     {
+        private LoginManager _loginManager = new LoginManager();
         public Login()
         {
             InitializeComponent();
@@ -28,6 +31,33 @@ namespace DnDCharacterBuilderGUI
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow?.ChangeView(new Registration());
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            bool userNameCheck = _loginManager.IsNameInDatabase(UserNameInput.Text, false);
+            bool passwordMatch = _loginManager.CheckNameToPassword(UserNameInput.Text, PasswordInput.Password, false);
+            if (userNameCheck == false)
+            {
+                if (MessageBox
+                    .Show("Error - User name not recognised. Do you need to register?",
+                    "Registration Check", MessageBoxButton.YesNo)==MessageBoxResult.Yes)
+                {
+                    var mainWindow = (MainWindow)Application.Current.MainWindow;
+                    mainWindow?.ChangeView(new Registration());
+                }
+            }
+            else
+            {
+                if (passwordMatch == true)
+                {
+                    var mainWindow = (MainWindow)Application.Current.MainWindow;
+                    mainWindow?.ChangeView(new Homepage());
+                }
+                else
+                {
+                    MessageBox.Show("Error - incorrect user name or password entered");
+                }
+            }
         }
     }
 }
