@@ -9,15 +9,12 @@
       Title="Login">
 
     <Grid>
-        <StackPanel>
-            <Label 
-        Foreground="YellowGreen" 
-        Content="User Login Content"
-        FontSize="32"/>
-            <Button 
-        Content="Registration"
-        Margin="8"
-        Click="Return_Click"/>
-        </StackPanel>
+        <TextBox x:Name="UserNameInput" HorizontalAlignment="Left" Margin="377,138,0,0" VerticalAlignment="Top" Width="120" Background="White"/>
+        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="377,178,0,0" VerticalAlignment="Top" Width="120" Background="White"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="464,244,0,0" VerticalAlignment="Top"/>
+        <Button Content="Register" HorizontalAlignment="Left" Margin="307,244,0,0" VerticalAlignment="Top" Click="Registration_Click"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,43,0,0" Text="User Login" FontSize="35" FontWeight="Bold" TextDecorations="Underline" Foreground="Red" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="307,138,0,0" Text="User Name: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="312,180,0,0" Text="Password: " TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Page>

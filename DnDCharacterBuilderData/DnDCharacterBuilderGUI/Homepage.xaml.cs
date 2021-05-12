@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace DnDCharacterBuilderGUI
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Homepage.xaml
     /// </summary>
-    public partial class Login : Page
+    public partial class Homepage : Page
     {
-        public Login()
+        public Homepage()
         {
             InitializeComponent();
         }
-        private void Registration_Click(object sender, RoutedEventArgs e)
+        private void Logout_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
-            mainWindow?.ChangeView(new Registration());
+            mainWindow?.ChangeView(new Login());
         }
     }
 }

@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:DnDCharacterBuilderGUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600">
+    <Window.Background>
+        <ImageBrush ImageSource="background.jpg"/>
+    </Window.Background>
     <Grid>
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

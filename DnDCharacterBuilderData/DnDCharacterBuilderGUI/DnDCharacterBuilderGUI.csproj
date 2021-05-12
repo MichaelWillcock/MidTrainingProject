@@ -7,8 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="background.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DnDCharacterBuilderBusiness\DnDCharacterBuilderBusiness.csproj" />
     <ProjectReference Include="..\DnDCharacterBuilderData\DnDCharacterBuilderData.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="background.jpg" />
   </ItemGroup>
 
 </Project>
