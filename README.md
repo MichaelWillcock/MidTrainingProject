@@ -1,7 +1,7 @@
 # MidTrainingProject
 The project is to build a 3 tier application involving a database, business layer and gui.
 
-## Sprint 1
+## Sprint 1 - 11/05/2021
 
 I started by creating the project backlog seen here
 ![StartofSprintOneish](https://user-images.githubusercontent.com/81698105/117843468-be171180-b276-11eb-96d4-ca00a9571b77.png)
@@ -38,3 +38,5 @@ The wireframes also started well with the exception of the used character sheet 
 
 The sprint goals for tomorrow are to focus on the user registration epic and code methods and create a gui so that a user can create an account that is then stored in the database.
 
+## Sprint 2 - 12/05/2021
+#### Sprint Goals From Project Backlog
