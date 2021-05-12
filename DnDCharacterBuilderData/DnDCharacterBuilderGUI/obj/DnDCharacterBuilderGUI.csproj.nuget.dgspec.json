@@ -1,0 +1,200 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderGUI\\DnDCharacterBuilderGUI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderBusiness\\DnDCharacterBuilderBusiness.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderBusiness\\DnDCharacterBuilderBusiness.csproj",
+        "projectName": "DnDCharacterBuilderBusiness",
+        "projectPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderBusiness\\DnDCharacterBuilderBusiness.csproj",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderBusiness\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderData\\DnDCharacterBuilderData.csproj": {
+                "projectPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderData\\DnDCharacterBuilderData.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderData\\DnDCharacterBuilderData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderData\\DnDCharacterBuilderData.csproj",
+        "projectName": "DnDCharacterBuilderData",
+        "projectPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderData\\DnDCharacterBuilderData.csproj",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderData\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderGUI\\DnDCharacterBuilderGUI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderGUI\\DnDCharacterBuilderGUI.csproj",
+        "projectName": "DnDCharacterBuilderGUI",
+        "projectPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderGUI\\DnDCharacterBuilderGUI.csproj",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderGUI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {
+              "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderBusiness\\DnDCharacterBuilderBusiness.csproj": {
+                "projectPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderBusiness\\DnDCharacterBuilderBusiness.csproj"
+              },
+              "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderData\\DnDCharacterBuilderData.csproj": {
+                "projectPath": "C:\\Users\\micha\\Github\\Project\\DnDCharacterBuilderData\\DnDCharacterBuilderData\\DnDCharacterBuilderData.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
