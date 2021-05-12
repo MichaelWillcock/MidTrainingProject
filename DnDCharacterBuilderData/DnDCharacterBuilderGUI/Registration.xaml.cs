@@ -29,15 +29,23 @@ namespace DnDCharacterBuilderGUI
         }
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-            if (PasswordInput.Password != ConfirmPasswordInput.Password)
+            bool userCheck = _userManager.CheckUserName(UserNameInput.Text, false);
+            if (userCheck == false)
             {
-                MessageBox.Show("Error - Passwords do not match");
+                if (PasswordInput.Password != ConfirmPasswordInput.Password)
+                {
+                    MessageBox.Show("Error - Passwords do not match");
+                }
+                else
+                {
+                    _userManager.AddUser(UserNameInput.Text, PasswordInput.Password);
+                    var mainWindow = (MainWindow)Application.Current.MainWindow;
+                    mainWindow?.ChangeView(new Login());
+                }
             }
             else
             {
-                _userManager.AddUser(UserNameInput.Text, PasswordInput.Password);
-                var mainWindow = (MainWindow)Application.Current.MainWindow;
-                mainWindow?.ChangeView(new Login());
+                MessageBox.Show("Error - Username taken, please enter a different one");
             }
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)

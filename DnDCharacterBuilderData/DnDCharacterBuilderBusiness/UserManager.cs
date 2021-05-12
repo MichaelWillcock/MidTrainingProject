@@ -24,5 +24,22 @@ namespace DnDCharacterBuilderBusiness
                 db.SaveChanges();
             }
         }
+        public bool CheckUserName(string userName, bool x)
+        {
+            using(var db = new DnDCharacterBuilderDataContext())
+            {
+                var userNameQuery =
+                    from u in db.Users
+                    select u.UserName;
+                foreach (var name in userNameQuery)
+                {
+                    if (name == userName)
+                    {
+                        x = true;
+                    }
+                }
+            }
+            return x;
+        }
     }
 }

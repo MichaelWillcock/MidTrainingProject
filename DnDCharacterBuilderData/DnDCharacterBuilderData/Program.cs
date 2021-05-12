@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace DnDCharacterBuilderData
 {
@@ -6,7 +7,6 @@ namespace DnDCharacterBuilderData
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
