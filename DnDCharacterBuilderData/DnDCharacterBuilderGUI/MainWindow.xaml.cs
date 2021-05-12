@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DnDCharacterBuilderBusiness;
+using DnDCharacterBuilderData;
+using Microsoft.Win32;
 
 namespace DnDCharacterBuilderGUI
 {
@@ -23,6 +26,17 @@ namespace DnDCharacterBuilderGUI
         public MainWindow()
         {
             InitializeComponent();
+            Application.Current.MainWindow = this;
+            Loaded += OnMainWindowLoaded;
+        }
+        private void OnMainWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            ChangeView(new Login());
+        }
+
+        public void ChangeView(Page view)
+        {
+            MainFrame.NavigationService.Navigate(view);
         }
     }
 }
