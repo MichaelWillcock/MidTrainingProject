@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DnDCharacterBuilderBusiness;
+using DnDCharacterBuilderData;
 
 namespace DnDCharacterBuilderGUI
 {
@@ -20,6 +22,8 @@ namespace DnDCharacterBuilderGUI
     /// </summary>
     public partial class UserSettings : Page
     {
+        private LoginManager _loginManager = new LoginManager();
+        private UserManager _userManager = new UserManager();
         public UserSettings()
         {
             InitializeComponent();
@@ -32,11 +36,26 @@ namespace DnDCharacterBuilderGUI
         }
         private void ChangeUsername_Click(object sender, RoutedEventArgs e)
         {
-
+            bool userCheck = _userManager.CheckUserName(UserNameInput.Text, false);
+            if(userCheck == false)
+            {
+                _loginManager.ChangeUserName(UserNameInput.Text);
+            }
+            else
+            {
+                MessageBox.Show("Error - That username is unavailable, please enter a different one");
+            }
         }
         private void ChangePassword_Click(object sender, RoutedEventArgs e)
         {
-
+            if (PasswordInput.Password != ConfirmPasswordInput.Password)
+            {
+                MessageBox.Show("Error - Passwords do not match");
+            }
+            else
+            {
+                _loginManager.ChangePassword(PasswordInput.Password);
+            }
         }
     }
 }

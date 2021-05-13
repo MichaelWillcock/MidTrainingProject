@@ -102,5 +102,81 @@ namespace DnDCharacterBuilderBusiness
             return name;
 
         }
+        public void ChangeUserName(string newUserName)
+        {
+            int userID = 0;
+            int logInID = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var userIdQuery =
+                    from u in db.loggedIns
+                    select u.UserId;
+                foreach (var Id in userIdQuery)
+                {
+                    userID = Id;
+                }
+            }
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var userLogInQuery =
+                    from u in db.loggedIns
+                    select u.LoggedInId;
+                foreach (var Id in userLogInQuery)
+                {
+                    logInID = Id;
+                }
+            }
+            using(var db = new DnDCharacterBuilderDataContext())
+            {
+                var SelectUser = db.Users.Find(userID+1);
+                SelectUser.UserName = newUserName;
+                db.SaveChanges();
+            }
+            using(var db = new DnDCharacterBuilderDataContext())
+            {
+                var SelectUser = db.loggedIns.Find(logInID);
+                SelectUser.UserName = newUserName;
+                db.SaveChanges();
+            }
+
+
+        }
+        public void ChangePassword(string newPassword)
+        {
+            int userID = 0;
+            int logInID = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var userIdQuery =
+                    from u in db.loggedIns
+                    select u.UserId;
+                foreach (var Id in userIdQuery)
+                {
+                    userID = Id;
+                }
+            }
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var userLogInQuery =
+                    from u in db.loggedIns
+                    select u.LoggedInId;
+                foreach (var Id in userLogInQuery)
+                {
+                    logInID = Id;
+                }
+            }
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var SelectUser = db.Users.Find(userID + 1);
+                SelectUser.Password = newPassword;
+                db.SaveChanges();
+            }
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var SelectUser = db.loggedIns.Find(logInID);
+                SelectUser.Password = newPassword;
+                db.SaveChanges();
+            }
+        }
     }
 }

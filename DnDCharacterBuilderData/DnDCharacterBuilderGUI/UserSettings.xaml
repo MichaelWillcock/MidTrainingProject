@@ -16,7 +16,7 @@
         <TextBox x:Name="UserNameInput" HorizontalAlignment="Left" Margin="260,125,0,0" VerticalAlignment="Top" Width="120" Background="White"/>
         <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="260,165,0,0" VerticalAlignment="Top" Width="120" Background="White"/>
         <PasswordBox x:Name="ConfirmPasswordInput" HorizontalAlignment="Left" Margin="260,204,0,00" VerticalAlignment="Top" Width="120" Background="White"/>
-        <Button x:Name="ChangeUserName" Content="Change Username" HorizontalAlignment="Left" Margin="170,260,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="330,260,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ChangeUserName" Content="Change Username" HorizontalAlignment="Left" Margin="170,260,0,0" VerticalAlignment="Top" Click="ChangeUsername_Click"/>
+        <Button x:Name="ChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="330,260,0,0" VerticalAlignment="Top" Click="ChangePassword_Click"/>
     </Grid>
 </Page>
