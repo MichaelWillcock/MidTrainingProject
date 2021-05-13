@@ -74,3 +74,5 @@ C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\DnDCharacterBuilderGUI.genruntimeconfig.cache
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\Homepage.g.cs
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\Homepage.baml
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\UserSettings.g.cs
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\UserSettings.baml

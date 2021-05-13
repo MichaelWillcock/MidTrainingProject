@@ -5,15 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DnDCharacterBuilderGUI"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="600"
       Title="Homepage">
 
     <Grid>
-        <Button Content="Logout" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
-        <TextBlock Name="Welcome1" HorizontalAlignment="Left" Margin="268,274,0,0" Text="{Binding textdata}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Welcome" Margin="268,274,0,0">
-            <Run Text="Insert Text"/>
-            <Run Text="{Binding textdata}"/>
-        </TextBlock>
+        <Button Content="Logout" HorizontalAlignment="Left" Margin="50,310,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
+        <Button Content="User Settings" HorizontalAlignment="Left" Margin="50,281,0,0" VerticalAlignment="Top" Click="UserSettings_Click"/>
+        <TextBlock Name="Welcome" HorizontalAlignment="Left" Margin="115,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="35" FontWeight="Bold" TextDecorations="Underline" Foreground="Red"/>
     </Grid>
 </Page>

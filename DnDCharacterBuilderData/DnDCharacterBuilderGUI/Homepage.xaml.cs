@@ -26,12 +26,18 @@ namespace DnDCharacterBuilderGUI
         public Homepage()
         {
             InitializeComponent();
+            Welcome.Text = $"Welcome...  {_loginManager.ReturnUserName()}!!";
         }
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             _loginManager.DeleteLoggedInUser();
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow?.ChangeView(new Login());
+        }
+        private void UserSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow?.ChangeView(new UserSettings());
         }
     }
 }

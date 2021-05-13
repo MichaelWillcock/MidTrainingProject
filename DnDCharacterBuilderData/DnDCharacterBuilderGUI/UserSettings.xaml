@@ -1,0 +1,22 @@
+﻿<Page x:Class="DnDCharacterBuilderGUI.UserSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnDCharacterBuilderGUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="UserSettings">
+
+    <Grid>
+        <Button x:Name="ReturnToHomePage" Content="Homepage" HorizontalAlignment="Left" Margin="50,296,0,0" VerticalAlignment="Top" Click="ReturnToHomePage_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="150,125,0,0" Text="Change User Name: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="150,166,0,0" Text="Change Password: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="150,204,0,0" Text="Confirm Password: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="UserNameInput" HorizontalAlignment="Left" Margin="260,125,0,0" VerticalAlignment="Top" Width="120" Background="White"/>
+        <PasswordBox x:Name="PasswordInput" HorizontalAlignment="Left" Margin="260,165,0,0" VerticalAlignment="Top" Width="120" Background="White"/>
+        <PasswordBox x:Name="ConfirmPasswordInput" HorizontalAlignment="Left" Margin="260,204,0,00" VerticalAlignment="Top" Width="120" Background="White"/>
+        <Button x:Name="ChangeUserName" Content="Change Username" HorizontalAlignment="Left" Margin="170,260,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ChangePassword" Content="Change Password" HorizontalAlignment="Left" Margin="330,260,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

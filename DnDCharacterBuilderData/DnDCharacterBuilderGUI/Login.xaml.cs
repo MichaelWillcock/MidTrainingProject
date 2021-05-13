@@ -26,6 +26,7 @@ namespace DnDCharacterBuilderGUI
         public Login()
         {
             InitializeComponent();
+            _loginManager.DeleteLoggedInUser();
         }
         private void Registration_Click(object sender, RoutedEventArgs e)
         {

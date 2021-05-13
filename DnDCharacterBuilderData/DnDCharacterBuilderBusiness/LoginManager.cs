@@ -86,5 +86,21 @@ namespace DnDCharacterBuilderBusiness
                 db.SaveChanges();
             }
         }
+        public string ReturnUserName()
+        {
+            string name = "";
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var dbname =
+                    from u in db.loggedIns
+                    select u.UserName;
+                foreach (var item in dbname)
+                {
+                    name += item;
+                }
+            }
+            return name;
+
+        }
     }
 }
