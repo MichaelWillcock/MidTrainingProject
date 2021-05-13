@@ -79,9 +79,23 @@ As a user I want to be able to change my username and password should I wish
 - [x] 1.4 Given that a user wants to change their user name, when they enter their new user name and confirm it, then the data base is user name with their new user name details.
 #### Sprint Timeline
 
-Insert sprint timeline here
+![BlankLogInTable](https://user-images.githubusercontent.com/81698105/118167918-26a0f280-b41f-11eb-8f4b-2100f38c4159.png)
+
+The following screenshot demonstrates the initial functionality to ensure the user can only access their data and no one elses, I initially tried to pass the user name inputted from the login screen across the pages into a string on the homepage page but after 2 hours of work that proved a dead end, so instead I created another table that contains one row, the logged in user, this table displays their userID, username and password. All of the remaining derivations will use the userID from this table to ensure individual users data can be kept separate.
+
+![LoginUpdate](https://user-images.githubusercontent.com/81698105/118168320-9f07b380-b41f-11eb-998f-c5cc5bb8f17d.png)
+
+This screenshot just shows the updated login table, with the single loaded row, giving the user details of the logged in user. One can also see the welcome message at the top that personalises to the users username.
+
+![UserSettings](https://user-images.githubusercontent.com/81698105/118168552-e130f500-b41f-11eb-89e6-f7b0e5dc1ce6.png)
+
+The creation of the user settings page completes sprint goal 1.2 and begins to demonstrate the functionality needed to complete sprint goals 1.3 & 1.4. Here one can enter a different user name and password and after clicking the respective buttons the corresponding data will be updated in the database as seen in the following screenshots.
+
+![UpdatedUsername](https://user-images.githubusercontent.com/81698105/118168845-33721600-b420-11eb-8d90-c3c293963562.png)
+![UpdatedPassword](https://user-images.githubusercontent.com/81698105/118168863-379e3380-b420-11eb-8439-04b142bae2e3.png)
+
 
 #### Sprint Retrospective
 The hardest part today was maintaining perseverance whilst trying to carry data from one page to anyother so that the application would recognise which user had logged in and only edit their data and allow them access to their characters. The presented a significant challenge both when I initially tried to use the navigation keyword to pass the data to a new page and then attempted to use databinding to add the data to the format of the homepage.
 
-After 2.5 hours of multiple methods non of which worked I came up with a work around by which I created another database that imports the row of the user who has logged in, when the user logs out manually or restarts the applciation the database is cleared leaving it blank for the next user. I also got around the databinding by jsut setting the text content during the pages initialisation. Due to the longer amount of time needed than thought to set the data unique to the logged in user, I have yet to add the listbox to the homepage or create unit tests for any of the methods created so far, these will be done after the review and tomorrow.
+After 2 hours of multiple methods non of which worked I came up with a work around by which I created another database that imports the row of the user who has logged in, when the user logs out manually or restarts the applciation the database is cleared leaving it blank for the next user. I also got around the databinding by jsut setting the text content during the pages initialisation. Due to the longer amount of time needed than thought to set the data unique to the logged in user, I have yet to add the listbox to the homepage or create unit tests for any of the methods created so far, these will be done after the review and tomorrow.
