@@ -68,3 +68,20 @@ Learning how to use the pages for naigation was interesting and for the time bei
 - [ ] create unit tests for methods written for registration system. Note. Methods were all manually tested during creation so should pass with minimal alterations.
 
 Work for tomorrow's sprint will involve creating the user interface gui and character viewing platforms. As well as creating unit tests for any methods created to implement the functionality described in the project backlog.
+
+## Sprint 3 13/05/2021
+Epic 1 - User home page  - User Story 1 - User Settings
+As a user I want to be able to change my username and password should I wish
+#### Sprint goals from project backlog
+- [ ] 1.1 Given a user has successfully logged in, when the homepage loads, then they should be shown a list of their current created characters and see a create new character option and see a user settings option.
+- [x] 1.2 Given that a user wants to change their user name or password, when they click on the user settings option they will be taken to a separate page with buttons to change or reset their username/password
+- [x] 1.3 Given that a user wants to change their password, when they enter their new password and confirm it, then the data base is updated with their new password details
+- [x] 1.4 Given that a user wants to change their user name, when they enter their new user name and confirm it, then the data base is user name with their new user name details.
+#### Sprint Timeline
+
+Insert sprint timeline here
+
+#### Sprint Retrospective
+The hardest part today was maintaining perseverance whilst trying to carry data from one page to anyother so that the application would recognise which user had logged in and only edit their data and allow them access to their characters. The presented a significant challenge both when I initially tried to use the navigation keyword to pass the data to a new page and then attempted to use databinding to add the data to the format of the homepage.
+
+After 2.5 hours of multiple methods non of which worked I came up with a work around by which I created another database that imports the row of the user who has logged in, when the user logs out manually or restarts the applciation the database is cleared leaving it blank for the next user. I also got around the databinding by jsut setting the text content during the pages initialisation. Due to the longer amount of time needed than thought to set the data unique to the logged in user, I have yet to add the listbox to the homepage or create unit tests for any of the methods created so far, these will be done after the review and tomorrow.
