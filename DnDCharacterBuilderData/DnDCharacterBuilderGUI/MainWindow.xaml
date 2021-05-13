@@ -10,6 +10,6 @@
         <ImageBrush ImageSource="background.jpg"/>
     </Window.Background>
     <Grid>
-        <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

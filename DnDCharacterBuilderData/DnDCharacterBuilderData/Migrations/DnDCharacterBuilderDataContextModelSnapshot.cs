@@ -94,6 +94,27 @@ namespace DnDCharacterBuilderData.Migrations
                     b.ToTable("Level");
                 });
 
+            modelBuilder.Entity("DnDCharacterBuilderData.LoggedIn", b =>
+                {
+                    b.Property<int>("LoggedInId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LoggedInId");
+
+                    b.ToTable("loggedIns");
+                });
+
             modelBuilder.Entity("DnDCharacterBuilderData.Races", b =>
                 {
                     b.Property<int>("RacesId")

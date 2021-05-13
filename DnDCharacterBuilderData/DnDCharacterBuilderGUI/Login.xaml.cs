@@ -50,6 +50,7 @@ namespace DnDCharacterBuilderGUI
             {
                 if (passwordMatch == true)
                 {
+                    _loginManager.AddUserToLoggedIn(UserNameInput.Text);
                     var mainWindow = (MainWindow)Application.Current.MainWindow;
                     mainWindow?.ChangeView(new Homepage());
                 }

@@ -17,6 +17,7 @@ namespace DnDCharacterBuilderData
         public DbSet<Levels> Level { get; set; }
         public DbSet<Races> Race { get; set; }
         public DbSet<StatLine> Stats { get; set; }
+        public DbSet<LoggedIn> loggedIns { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

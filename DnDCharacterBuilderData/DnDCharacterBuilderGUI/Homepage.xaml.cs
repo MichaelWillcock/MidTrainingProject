@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DnDCharacterBuilderBusiness;
+using DnDCharacterBuilderData;
 
 namespace DnDCharacterBuilderGUI
 {
@@ -20,12 +22,14 @@ namespace DnDCharacterBuilderGUI
     /// </summary>
     public partial class Homepage : Page
     {
+        private LoginManager _loginManager = new LoginManager();
         public Homepage()
         {
             InitializeComponent();
         }
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
+            _loginManager.DeleteLoggedInUser();
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow?.ChangeView(new Login());
         }

@@ -10,5 +10,10 @@
 
     <Grid>
         <Button Content="Logout" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
+        <TextBlock Name="Welcome1" HorizontalAlignment="Left" Margin="268,274,0,0" Text="{Binding textdata}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Welcome" Margin="268,274,0,0">
+            <Run Text="Insert Text"/>
+            <Run Text="{Binding textdata}"/>
+        </TextBlock>
     </Grid>
 </Page>
