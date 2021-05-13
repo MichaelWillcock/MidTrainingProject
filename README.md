@@ -112,3 +112,11 @@ As a user I want to be able to change my username and password should I wish
 #### Sprint goals from project backlog
 - [ ] 1.1 Given a user has successfully logged in, when the homepage loads, then they should be shown a list of their current created characters and see a create new character option and see a user settings option.
 ### Sprint 4 goals from project backlog
+Epic 1 - User home page  - User Story 2 - new and current characters
+As a user I want to be able to view, create, edit and delete my current characters.
+- [ ] 2.1 Given that a user wants to create a new character, when they click on the create character button, a new window will open, with a blank character sheet and a dice roller attached to it.
+- [ ] 2.2 Given that a user wants to view and edit a current character, when they click on the character in the list, then it will open up a new window showing the selected character with a dice roller
+- [ ] 2.3 Given that a user wants to delete a current character when they select the character and click delete then the character will be deleted after a confirmation message is displayed.
+- [ ] 2.4 Given that a user wants to delete several characters, when they select a number of characters and click delete then the characters will be deleted after a confirmation message is displayed
+
+#### Sprint Timeline
