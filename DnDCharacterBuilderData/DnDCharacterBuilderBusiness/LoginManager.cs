@@ -128,7 +128,7 @@ namespace DnDCharacterBuilderBusiness
             }
             using(var db = new DnDCharacterBuilderDataContext())
             {
-                var SelectUser = db.Users.Find(userID+1);
+                var SelectUser = db.Users.Find(userID);
                 SelectUser.UserName = newUserName;
                 db.SaveChanges();
             }
@@ -167,15 +167,14 @@ namespace DnDCharacterBuilderBusiness
             }
             using (var db = new DnDCharacterBuilderDataContext())
             {
-                var SelectUser = db.Users.Find(userID + 1);
+                var SelectUser = db.Users.Find(userID);
                 SelectUser.Password = newPassword;
                 db.SaveChanges();
             }
             using (var db = new DnDCharacterBuilderDataContext())
             {
                 var SelectUser = db.loggedIns.Find(logInID);
-                SelectUser.Password = newPassword;
-                db.SaveChanges();
+
             }
         }
     }

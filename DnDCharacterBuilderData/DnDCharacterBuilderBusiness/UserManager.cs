@@ -11,13 +11,7 @@ namespace DnDCharacterBuilderBusiness
     {
         public void AddUser(string userName, string password)
         {
-            int x = 0;
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var setupPrimaryKey = db.Users.Count<User>();
-                x = setupPrimaryKey++;
-            }
-            var newUser = new User() { UserId = x, UserName = userName, Password = password };
+            var newUser = new User() { UserName = userName, Password = password };
             using(var db = new DnDCharacterBuilderDataContext())
             {
                 db.Users.Add(newUser);

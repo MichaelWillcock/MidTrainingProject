@@ -10,7 +10,6 @@ namespace DnDCharacterBuilderData
             Characters = new HashSet<Character>();
         }
         public int UserId { get; set; }
-        public int Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public virtual ICollection<Character> Characters { get; set; }
