@@ -99,3 +99,16 @@ The creation of the user settings page completes sprint goal 1.2 and begins to d
 The hardest part today was maintaining perseverance whilst trying to carry data from one page to anyother so that the application would recognise which user had logged in and only edit their data and allow them access to their characters. The presented a significant challenge both when I initially tried to use the navigation keyword to pass the data to a new page and then attempted to use databinding to add the data to the format of the homepage.
 
 After 2 hours of multiple methods non of which worked I came up with a work around by which I created another database that imports the row of the user who has logged in, when the user logs out manually or restarts the applciation the database is cleared leaving it blank for the next user. I also got around the databinding by jsut setting the text content during the pages initialisation. Due to the longer amount of time needed than thought to set the data unique to the logged in user, I have yet to add the listbox to the homepage or create unit tests for any of the methods created so far, these will be done after the review and tomorrow.
+
+#### Post Review Work
+Created unit tests for all of the methods used in the UserManager and LoginManager classes. The Password changed test revealed a failing in the database based around the accidental inclusion of an Id column alongside a userID column. The database was reset with the Id column removed meaning that the userID column is now the primary key of the users table as originally intended and all of the unit tests pass as see below.
+
+![Unittests](https://user-images.githubusercontent.com/81698105/118191224-2d8a2e00-b43c-11eb-89d1-dd2a70448ffd.png)
+
+## Sprint 4 - 14/05/2021
+### Work from Sprint 3
+Epic 1 - User home page  - User Story 1 - User Settings
+As a user I want to be able to change my username and password should I wish
+#### Sprint goals from project backlog
+- [ ] 1.1 Given a user has successfully logged in, when the homepage loads, then they should be shown a list of their current created characters and see a create new character option and see a user settings option.
+### Sprint 4 goals from project backlog
