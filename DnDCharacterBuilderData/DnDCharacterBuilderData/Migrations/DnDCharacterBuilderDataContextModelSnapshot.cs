@@ -29,6 +29,12 @@ namespace DnDCharacterBuilderData.Migrations
                     b.Property<string>("CharacterName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Class")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Race")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -52,9 +58,6 @@ namespace DnDCharacterBuilderData.Migrations
                     b.Property<string>("ArmourProficiencies")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CharacterId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ClassName")
                         .HasColumnType("nvarchar(max)");
 
@@ -65,8 +68,6 @@ namespace DnDCharacterBuilderData.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClassesId");
-
-                    b.HasIndex("CharacterId");
 
                     b.ToTable("Class");
                 });
@@ -79,9 +80,6 @@ namespace DnDCharacterBuilderData.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("CharacterId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Level")
                         .HasColumnType("int");
 
                     b.Property<int>("ProficiencyBonus")
@@ -125,9 +123,6 @@ namespace DnDCharacterBuilderData.Migrations
                     b.Property<string>("Abilities")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CharacterId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Languages")
                         .HasColumnType("nvarchar(max)");
 
@@ -153,8 +148,6 @@ namespace DnDCharacterBuilderData.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RacesId");
-
-                    b.HasIndex("CharacterId");
 
                     b.ToTable("Race");
                 });
@@ -221,29 +214,11 @@ namespace DnDCharacterBuilderData.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DnDCharacterBuilderData.Classes", b =>
-                {
-                    b.HasOne("DnDCharacterBuilderData.Character", null)
-                        .WithMany("Class")
-                        .HasForeignKey("CharacterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("DnDCharacterBuilderData.Levels", b =>
                 {
                     b.HasOne("DnDCharacterBuilderData.Character", null)
                         .WithMany("Level")
                         .HasForeignKey("CharacterId");
-                });
-
-            modelBuilder.Entity("DnDCharacterBuilderData.Races", b =>
-                {
-                    b.HasOne("DnDCharacterBuilderData.Character", null)
-                        .WithMany("Race")
-                        .HasForeignKey("CharacterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("DnDCharacterBuilderData.StatLine", b =>
@@ -257,11 +232,7 @@ namespace DnDCharacterBuilderData.Migrations
 
             modelBuilder.Entity("DnDCharacterBuilderData.Character", b =>
                 {
-                    b.Navigation("Class");
-
                     b.Navigation("Level");
-
-                    b.Navigation("Race");
 
                     b.Navigation("Stats");
                 });

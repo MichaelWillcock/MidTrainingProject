@@ -9,16 +9,18 @@ namespace DnDCharacterBuilderTests
     {
         UserManager _userManager;
         LoginManager _loginManager;
+        CharacterManager _characterManager;
         [SetUp]
         public void Setup()
         {
             _userManager = new UserManager();
             _loginManager = new LoginManager();
+            _characterManager = new CharacterManager();
             using (var db = new DnDCharacterBuilderDataContext())
             {
                 var query =
                     from u in db.Users
-                    where u.UserName == "TestName"
+                    where u.UserName == "TestName" || u.UserName == "NewTestName"
                     select u;
                 db.Users.RemoveRange(query);
                 db.SaveChanges();
@@ -141,6 +143,33 @@ namespace DnDCharacterBuilderTests
             result = _loginManager.CheckNameToPassword("TestName", "NewPassword", result);
             Assert.AreEqual(expected, result);
         }
+        [Test]
+        public void AddedCharacterToCharacters()
+        {
+            _userManager.AddUser("TestName", "Password");
+            _loginManager.AddUserToLoggedIn("TestName");
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var preAddCount = db.Characters.Count();
+                _characterManager.AddCharacter("TestCharacter", "TestClass", "TestRace");
+                var postAddCount = db.Characters.Count();
+                Assert.AreEqual(preAddCount + 1, postAddCount);
+            }
+        }
+        [Test]
+        public void RemovedCharacterFromCharacters()
+        {
+            _userManager.AddUser("TestName", "Password");
+            _loginManager.AddUserToLoggedIn("TestName");
+            _characterManager.AddCharacter("TestCharacter", "TestClass", "TestRace");
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var preDeleteCount = db.Characters.Count();
+                _characterManager.RemoveCharacter("TestCharacter");
+                var postDeleteCount = db.Characters.Count();
+                Assert.AreEqual(preDeleteCount, postDeleteCount+1);
+            }
+        }
 
         [TearDown]
         public void TearDown()
@@ -149,7 +178,7 @@ namespace DnDCharacterBuilderTests
             {
                 var query =
                     from u in db.Users
-                    where u.UserName == "TestName"
+                    where u.UserName == "TestName" || u.UserName == "NewTestName"
                     select u;
                 db.Users.RemoveRange(query);
                 db.SaveChanges();

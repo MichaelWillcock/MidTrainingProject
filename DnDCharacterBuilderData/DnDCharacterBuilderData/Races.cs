@@ -9,7 +9,6 @@ namespace DnDCharacterBuilderData
     public partial class Races
     {
         public int RacesId { get; set; }
-        public int CharacterId { get; set; }
         public string RaceName { get; set; }
         public string SubRaceName { get; set; }
         public string Languages { get; set; }

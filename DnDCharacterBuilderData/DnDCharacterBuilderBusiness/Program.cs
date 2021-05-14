@@ -6,7 +6,7 @@ namespace DnDCharacterBuilderBusiness
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
         }
     }
 }

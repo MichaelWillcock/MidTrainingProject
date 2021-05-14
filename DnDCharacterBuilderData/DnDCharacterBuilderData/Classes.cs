@@ -9,7 +9,6 @@ namespace DnDCharacterBuilderData
     public partial class Classes
     {
         public int ClassesId { get; set; }
-        public int CharacterId { get; set; }
         public string ClassName { get; set; }
         public int HitDice { get; set; }
         public string WeaponProficiencies { get; set; }

@@ -9,8 +9,10 @@
       Title="Homepage">
 
     <Grid>
-        <Button Content="Logout" HorizontalAlignment="Left" Margin="50,310,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
-        <Button Content="User Settings" HorizontalAlignment="Left" Margin="50,281,0,0" VerticalAlignment="Top" Click="UserSettings_Click"/>
+        <Button Content="Logout" HorizontalAlignment="Left" Margin="50,320,0,0" VerticalAlignment="Top" Click="Logout_Click"/>
+        <Button Content="User Settings" HorizontalAlignment="Left" Margin="50,290,0,0" VerticalAlignment="Top" Click="UserSettings_Click"/>
         <TextBlock Name="Welcome" HorizontalAlignment="Left" Margin="115,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="35" FontWeight="Bold" TextDecorations="Underline" Foreground="Red"/>
+        <ListBox x:Name="CharacterListBox" Margin="150,80,150,80"/>
+        <Button Content="Add Character" HorizontalAlignment="Left" Margin="470,170,0,0" VerticalAlignment="Top" Click="AddCharacter_Click"/>
     </Grid>
 </Page>

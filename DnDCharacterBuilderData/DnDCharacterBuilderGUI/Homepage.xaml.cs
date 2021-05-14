@@ -23,10 +23,16 @@ namespace DnDCharacterBuilderGUI
     public partial class Homepage : Page
     {
         private LoginManager _loginManager = new LoginManager();
+        private CharacterManager _characterManager = new CharacterManager();
         public Homepage()
         {
             InitializeComponent();
             Welcome.Text = $"Welcome...  {_loginManager.ReturnUserName()}!!";
+            FillListBox();
+        }
+        private void FillListBox()
+        {
+            CharacterListBox.ItemsSource = _characterManager.RetrieveAllUsersCharacters();
         }
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
@@ -38,6 +44,11 @@ namespace DnDCharacterBuilderGUI
         {
             var mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow?.ChangeView(new UserSettings());
+        }
+        private void AddCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            AddCharacter addCharacter = new AddCharacter();
+            addCharacter.Show();
         }
     }
 }
