@@ -14,8 +14,10 @@
         <ComboBox x:Name="ClassComboBox" HorizontalAlignment="Left" Margin="264,187,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="160,79,0,0" Text="Character Name: " TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="160,124,0,0" Text="Character Race: " TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="160,187,0,0" Text="Character Classs: " TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="CharacerNameInput" HorizontalAlignment="Left" Margin="264,78,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Add Character" HorizontalAlignment="Left" Margin="264,233,0,0" VerticalAlignment="Top" Click="AddCharacter_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="160,187,0,0" Text="Character Class: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="CharacerNameInput" HorizontalAlignment="Left" Margin="264,78,0,0" Text="Character Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Add Character" HorizontalAlignment="Left" Margin="240,280,0,0" FontSize="20" Background="Green" Foreground="LightGreen" FontWeight="Bold" VerticalAlignment="Top" Click="AddCharacter_Click"/>
+        <Button Content="Generate Ability Scores" HorizontalAlignment="Left" Margin="200,230,0,0" FontSize="20" Background="LightPink" Foreground="Red" FontWeight="Bold" VerticalAlignment="Top" Click="StatGenerator_Click"/>
+        <Button Content="EXIT" HorizontalAlignment="Left" Margin="70,350,0,0" FontSize="20" Background="DarkRed" Foreground="Red" FontWeight="Bold" VerticalAlignment="Top" Click="ExitCharacterCreation_Click"/>
     </Grid>
 </Window>

@@ -156,20 +156,20 @@ namespace DnDCharacterBuilderTests
                 Assert.AreEqual(preAddCount + 1, postAddCount);
             }
         }
-        [Test]
-        public void RemovedCharacterFromCharacters()
-        {
-            _userManager.AddUser("TestName", "Password");
-            _loginManager.AddUserToLoggedIn("TestName");
-            _characterManager.AddCharacter("TestCharacter", "TestClass", "TestRace");
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var preDeleteCount = db.Characters.Count();
-                _characterManager.RemoveCharacter("TestCharacter");
-                var postDeleteCount = db.Characters.Count();
-                Assert.AreEqual(preDeleteCount, postDeleteCount+1);
-            }
-        }
+        //[Test]
+        //public void RemovedCharacterFromCharacters()
+        //{
+        //    _userManager.AddUser("TestName", "Password");
+        //    _loginManager.AddUserToLoggedIn("TestName");
+        //    _characterManager.AddCharacter("TestCharacter", "TestClass", "TestRace");
+        //    using (var db = new DnDCharacterBuilderDataContext())
+        //    {
+        //        var preDeleteCount = db.Characters.Count();
+        //        _characterManager.RemoveCharacter("TestCharacter");
+        //        var postDeleteCount = db.Characters.Count();
+        //        Assert.AreEqual(preDeleteCount, postDeleteCount+1);
+        //    }
+        //}
 
         [TearDown]
         public void TearDown()

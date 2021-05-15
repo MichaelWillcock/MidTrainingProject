@@ -18,6 +18,7 @@ namespace DnDCharacterBuilderData
         public DbSet<Races> Race { get; set; }
         public DbSet<StatLine> Stats { get; set; }
         public DbSet<LoggedIn> loggedIns { get; set; }
+        public DbSet<ActiveCharacter> activeCharacters { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

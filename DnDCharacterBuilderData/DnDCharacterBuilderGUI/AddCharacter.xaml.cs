@@ -40,6 +40,23 @@ namespace DnDCharacterBuilderGUI
         private void AddCharacter_Click(object sender, RoutedEventArgs e)
         {
             _characterManager.AddCharacter(CharacerNameInput.Text, ClassComboBox.SelectedItem.ToString(), RaceComboBox.SelectedItem.ToString());
+            this.Close();
+        }
+
+        private void ExitCharacterCreation_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox
+                    .Show("Are you sure you wish to exit? Your changes will not be saved.",
+                    "Exit Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }     
+        }
+
+        private void StatGenerator_Click(object sender, RoutedEventArgs e)
+        {
+            StatGenerator statGenerator = new StatGenerator();
+            statGenerator.Show();
         }
     }
 }

@@ -76,5 +76,86 @@ namespace DnDCharacterBuilderBusiness
                 return db.Race.ToList();
             }
         }
+        public List<int> RollStats()
+        {
+            List<int> statLine = new List<int>();
+            for (int i = 0; i < 6; i++)
+            {
+                var random = new Random();
+                List<int> dice = new List<int>();
+                for (int j = 0; j < 4; j++)
+                {
+                    dice.Add(random.Next(1, 7));
+                }
+                int lowestIndex = 0;
+                int lowest = Int32.MaxValue;
+                foreach (var number in dice)
+                {
+                    if (number <= lowest)
+                    {
+                        lowest = number;
+                        lowestIndex = dice.IndexOf(lowest);
+                    }
+                }
+                dice.RemoveAt(lowestIndex);
+                int stat = 0;
+                foreach (var number in dice)
+                {
+                    stat += number;
+                }
+                statLine.Add(stat);
+            }
+            statLine.Sort();
+            statLine.Reverse();
+            return statLine;
+        }
+        public void AddCharacterToActiveCharacters(int characterId)
+        {
+            List<string> userDeets = new List<string>();
+            int userId = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var loggedin =
+                    from u in db.loggedIns
+                    select u.UserId;
+                foreach (var number in loggedin)
+                {
+                    userId = number;
+                }
+                var characterDetails =
+                from c in db.Characters
+                where c.CharacterId == characterId && c.UserId == userId
+                select new { c.UserId, c.UserName, c.CharacterId, c.CharacterName, c.Class, c.Race };
+
+                foreach (var item in characterDetails)
+                {
+                    userId = item.UserId;
+                    userDeets.Add(item.UserName);
+                    userDeets.Add(item.CharacterName);
+                    userDeets.Add(item.Class);
+                    userDeets.Add(item.Race);
+                }
+            }
+            var setActiveCharacter = new ActiveCharacter() { UserId = userId, UserName = userDeets[0], CharacterId = characterId, CharacterName = userDeets[1], Class = userDeets[2], Race = userDeets[3] };
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                db.activeCharacters.Add(setActiveCharacter);
+                db.SaveChanges();
+            }
+        }
+        public void DeleteActiveCharacter()
+        {
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select c;
+                foreach (var item in query)
+                {
+                    db.activeCharacters.Remove(item);
+                }
+                db.SaveChanges();
+            }
+        }
     }
 }

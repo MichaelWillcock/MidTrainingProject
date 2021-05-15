@@ -6,20 +6,14 @@ using System.Threading.Tasks;
 
 namespace DnDCharacterBuilderData
 {
-    public partial class Character
+    public partial class ActiveCharacter
     {
-        public Character()
-        {
-            Stats = new HashSet<StatLine>();
-            Level = new HashSet<Levels>();
-        }
-        public int CharacterId { get; set; }
+        public int ActiveCharacterId { get; set; }
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public int CharacterId { get; set; }
         public string CharacterName { get; set; }
         public string Class { get; set; }
         public string Race { get; set; }
-        public virtual ICollection<Levels> Level { get; set; }
-        public virtual ICollection<StatLine> Stats { get; set; }
     }
 }

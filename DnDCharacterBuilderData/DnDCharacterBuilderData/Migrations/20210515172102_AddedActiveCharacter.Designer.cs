@@ -4,14 +4,16 @@ using DnDCharacterBuilderData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DnDCharacterBuilderData.Migrations
 {
     [DbContext(typeof(DnDCharacterBuilderDataContext))]
-    partial class DnDCharacterBuilderDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210515172102_AddedActiveCharacter")]
+    partial class AddedActiveCharacter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

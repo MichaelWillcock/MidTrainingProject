@@ -78,3 +78,5 @@ C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\UserSettings.baml
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AddCharacter.g.cs
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AddCharacter.baml
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\StatGenerator.g.cs
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\StatGenerator.baml

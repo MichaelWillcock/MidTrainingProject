@@ -36,9 +36,14 @@ namespace DnDCharacterBuilderGUI
         }
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            _loginManager.DeleteLoggedInUser();
-            var mainWindow = (MainWindow)Application.Current.MainWindow;
-            mainWindow?.ChangeView(new Login());
+            if (MessageBox
+                    .Show("Are you sure you wish to logout?",
+                    "Logout", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                _loginManager.DeleteLoggedInUser();
+                var mainWindow = (MainWindow)Application.Current.MainWindow;
+                mainWindow?.ChangeView(new Login());
+            }
         }
         private void UserSettings_Click(object sender, RoutedEventArgs e)
         {

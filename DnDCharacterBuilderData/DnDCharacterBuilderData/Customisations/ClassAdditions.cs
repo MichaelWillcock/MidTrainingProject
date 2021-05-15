@@ -10,7 +10,7 @@ namespace DnDCharacterBuilderData
     {
         public override string ToString()
         {
-            return $"{CharacterId}-{CharacterName}-{Class}-{Race}";
+            return $"{CharacterId} - {CharacterName} - {Class} - {Race}";
         }
     }
     public partial class Classes

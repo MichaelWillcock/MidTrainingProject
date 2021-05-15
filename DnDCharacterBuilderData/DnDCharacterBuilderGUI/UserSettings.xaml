@@ -10,6 +10,7 @@
 
     <Grid>
         <Button x:Name="ReturnToHomePage" Content="Homepage" HorizontalAlignment="Left" Margin="50,296,0,0" VerticalAlignment="Top" Click="ReturnToHomePage_Click"/>
+        <TextBlock x:Name="Title" HorizontalAlignment="Center" Margin="0,30,0,0" Text="User Settings" FontSize="30" FontWeight="Bold" Foreground="Red" TextDecorations="Underline" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,125,0,0" Text="Change User Name: " TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,166,0,0" Text="Change Password: " TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,204,0,0" Text="Confirm Password: " TextWrapping="Wrap" VerticalAlignment="Top"/>
