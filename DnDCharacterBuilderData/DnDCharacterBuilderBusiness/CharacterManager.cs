@@ -157,5 +157,46 @@ namespace DnDCharacterBuilderBusiness
                 db.SaveChanges();
             }
         }
+        public int ReturnLatestCreatedCharacter()
+        {
+            int charId = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.Characters
+                    select c.CharacterId;
+                foreach (var id in query)
+                {
+                    if (id >= charId)
+                    {
+                        charId = id;
+                    }
+                }
+            }
+            return charId;
+        }
+        public void UdateCharacterDetails(string name, string Class, string race)
+        {
+            int charID = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select c.CharacterId;
+                foreach (var number in query)
+                {
+                    charID = number;
+                }
+                var editCharacter = db.Characters.Find(charID);
+                editCharacter.CharacterName = name;
+                editCharacter.Class = Class;
+                editCharacter.Race = race;
+                var editActiveCharacter = db.activeCharacters.Find(charID);
+                editCharacter.CharacterName = name;
+                editCharacter.Class = Class;
+                editCharacter.Race = race;
+                db.SaveChanges();
+            }
+        }
     }
 }

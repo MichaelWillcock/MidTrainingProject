@@ -27,6 +27,7 @@ namespace DnDCharacterBuilderGUI
             InitializeComponent();
             FillClassListBox();
             FillRaceListBox();
+            _characterManager.AddCharacterToActiveCharacters(_characterManager.ReturnLatestCreatedCharacter());
         }
         private void FillClassListBox()
         {
@@ -39,12 +40,15 @@ namespace DnDCharacterBuilderGUI
 
         private void AddCharacter_Click(object sender, RoutedEventArgs e)
         {
-            _characterManager.AddCharacter(CharacerNameInput.Text, ClassComboBox.SelectedItem.ToString(), RaceComboBox.SelectedItem.ToString());
+            _characterManager.UdateCharacterDetails(CharacerNameInput.Text, ClassComboBox.Text, RaceComboBox.Text);
+            _characterManager.DeleteActiveCharacter();
             this.Close();
         }
 
         private void ExitCharacterCreation_Click(object sender, RoutedEventArgs e)
         {
+            _characterManager.RemoveCharacter(_characterManager.ReturnLatestCreatedCharacter());
+            _characterManager.DeleteActiveCharacter();
             if (MessageBox
                     .Show("Are you sure you wish to exit? Your changes will not be saved.",
                     "Exit Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
