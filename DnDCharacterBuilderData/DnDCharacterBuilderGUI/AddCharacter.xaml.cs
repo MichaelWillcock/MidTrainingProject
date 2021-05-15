@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DnDCharacterBuilderBusiness;
 using DnDCharacterBuilderData;
@@ -17,11 +18,12 @@ using DnDCharacterBuilderData;
 namespace DnDCharacterBuilderGUI
 {
     /// <summary>
-    /// Interaction logic for AddCharacter.xaml
+    /// Interaction logic for AddedCharacter.xaml
     /// </summary>
-    public partial class AddCharacter : Window
+    public partial class AddCharacter
     {
         private CharacterManager _characterManager = new CharacterManager();
+        private StatlineManager _statlineManager = new StatlineManager();
         public AddCharacter()
         {
             InitializeComponent();
@@ -40,9 +42,17 @@ namespace DnDCharacterBuilderGUI
 
         private void AddCharacter_Click(object sender, RoutedEventArgs e)
         {
-            _characterManager.UdateCharacterDetails(CharacerNameInput.Text, ClassComboBox.Text, RaceComboBox.Text);
-            _characterManager.DeleteActiveCharacter();
-            this.Close();
+            if (RaceComboBox.Text.Contains("Varient") || RaceComboBox.Text.Contains("Half elf"))
+            {
+                
+            }
+            else
+            {
+                _characterManager.UdateCharacterDetails(CharacerNameInput.Text, ClassComboBox.Text, RaceComboBox.Text);
+                _statlineManager.AddedRacialModifieresToStatLine(_characterManager.ReturnActiveCharId(), RaceComboBox.Text);
+                _characterManager.DeleteActiveCharacter();
+                this.Close();
+            }
         }
 
         private void ExitCharacterCreation_Click(object sender, RoutedEventArgs e)
@@ -54,7 +64,7 @@ namespace DnDCharacterBuilderGUI
                     "Exit Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 this.Close();
-            }     
+            }
         }
 
         private void StatGenerator_Click(object sender, RoutedEventArgs e)

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\App.xaml
-7673838789
+9-1721034144
 
-91653556095
+111678901708
 216969312459
-AddCharacter.xaml;Homepage.xaml;Login.xaml;MainWindow.xaml;Registration.xaml;StatGenerator.xaml;UserSettings.xaml;
+AddCharacter.xaml;AddedCharacter.xaml;AlternativeScores.xaml;Homepage.xaml;Login.xaml;MainWindow.xaml;Registration.xaml;StatGenerator.xaml;UserSettings.xaml;
 
 False
 

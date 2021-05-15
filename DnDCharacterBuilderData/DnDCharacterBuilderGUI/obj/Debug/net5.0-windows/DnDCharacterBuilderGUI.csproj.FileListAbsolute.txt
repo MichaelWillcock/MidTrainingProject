@@ -80,3 +80,7 @@ C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AddCharacter.baml
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\StatGenerator.g.cs
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\StatGenerator.baml
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AlternativeScores.g.cs
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AlternativeScores.baml
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AddedCharacter.g.cs
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AddedCharacter.baml
