@@ -22,6 +22,7 @@ namespace DnDCharacterBuilderGUI
     public partial class StatGenerator : Window
     {
         private CharacterManager _characterManager = new CharacterManager();
+        private StatlineManager _statlineManager = new StatlineManager();
         private List<int> _rolledStats { get; set; }
         private List<int> _confirmedStats { get; set; }
         public StatGenerator()
@@ -56,6 +57,14 @@ namespace DnDCharacterBuilderGUI
         }
         private void AssignStatsToCharacter_Click(object sender, RoutedEventArgs e)
         {
+            int Strength = Int32.Parse(StrengthScoreListBox.Text);
+            int Dexterity = Int32.Parse(DexterityScoreListBox.Text);
+            int Constitution = Int32.Parse(ConstitutionScoreListBox.Text);
+            int Intelligence = Int32.Parse(IntelligenceScoreListBox.Text);
+            int Wisdom = Int32.Parse(WisdomScoreListBox.Text);
+            int Charisma = Int32.Parse(CharismaScoreListBox.Text);
+            _statlineManager.AddStatlineToCharacter(_characterManager.ReturnActiveCharId(),
+                Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma);
             this.Close();
         }
         private void DisgardScores_Click(object sender, RoutedEventArgs e)

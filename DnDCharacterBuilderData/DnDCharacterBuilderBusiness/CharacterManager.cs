@@ -175,6 +175,21 @@ namespace DnDCharacterBuilderBusiness
             }
             return charId;
         }
+        public int ReturnActiveCharId()
+        {
+            int charID = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select c.CharacterId;
+                foreach (var number in query)
+                {
+                    charID = number;
+                }
+            }
+            return charID;
+        }
         public void UdateCharacterDetails(string name, string Class, string race)
         {
             int charID = 0;
