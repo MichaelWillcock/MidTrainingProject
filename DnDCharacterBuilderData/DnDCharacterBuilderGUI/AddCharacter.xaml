@@ -5,10 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DnDCharacterBuilderGUI"
         mc:Ignorable="d"
-        Title="AddCharacter" Height="450" Width="800">
+        Title="AddCharacter" Height="450" Width="600">
+    <Window.Background>
+        <ImageBrush ImageSource="background.jpg"/>
+    </Window.Background>
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="124,78,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Barbarian"></ComboBoxItem>
-        </ComboBox>
+        <ComboBox x:Name="RaceComboBox" HorizontalAlignment="Left" Margin="264,121,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ClassComboBox" HorizontalAlignment="Left" Margin="264,187,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="160,79,0,0" Text="Character Name: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="160,124,0,0" Text="Character Race: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="160,187,0,0" Text="Character Classs: " TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="CharacerNameInput" HorizontalAlignment="Left" Margin="264,78,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Add Character" HorizontalAlignment="Left" Margin="264,233,0,0" VerticalAlignment="Top" Click="AddCharacter_Click"/>
     </Grid>
 </Window>

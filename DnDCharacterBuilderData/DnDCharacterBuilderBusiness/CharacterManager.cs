@@ -27,7 +27,7 @@ namespace DnDCharacterBuilderBusiness
 
             }
         }
-        public void RemoveCharacter(string characterName)
+        public void RemoveCharacter(int characterId)
         {
             using (var db = new DnDCharacterBuilderDataContext())
             {
@@ -41,7 +41,7 @@ namespace DnDCharacterBuilderBusiness
                 }
                 var query =
                     from c in db.Characters
-                    where c.CharacterName == characterName && c.UserId == userId 
+                    where c.CharacterId == characterId && c.UserId == userId 
                     select c;
                 db.Characters.RemoveRange(query);
                 db.SaveChanges();
@@ -60,6 +60,20 @@ namespace DnDCharacterBuilderBusiness
                     userId = number.UserId;
                 }
                 return db.Characters.Where(u => u.UserId == userId).ToList();
+            }
+        }
+        public List<Classes> RetrieveAllClasses()
+        {
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                return db.Class.ToList();
+            }
+        }
+        public List<Races> RetrieveAllRaces()
+        {
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                return db.Race.ToList();
             }
         }
     }

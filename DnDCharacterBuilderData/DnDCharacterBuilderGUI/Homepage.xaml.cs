@@ -50,5 +50,18 @@ namespace DnDCharacterBuilderGUI
             AddCharacter addCharacter = new AddCharacter();
             addCharacter.Show();
         }
+        private void RemoveSelectedCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedCharacter = CharacterListBox.SelectedItem;
+            string[] characterIdString = selectedCharacter.ToString().Split("-");
+            int characterId = Int32.Parse(characterIdString[0]);
+            _characterManager.RemoveCharacter(characterId);
+            FillListBox();
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            FillListBox();
+        }
     }
 }

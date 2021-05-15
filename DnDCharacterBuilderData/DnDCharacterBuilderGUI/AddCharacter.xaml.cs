@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DnDCharacterBuilderBusiness;
+using DnDCharacterBuilderData;
 
 namespace DnDCharacterBuilderGUI
 {
@@ -19,9 +21,25 @@ namespace DnDCharacterBuilderGUI
     /// </summary>
     public partial class AddCharacter : Window
     {
+        private CharacterManager _characterManager = new CharacterManager();
         public AddCharacter()
         {
             InitializeComponent();
+            FillClassListBox();
+            FillRaceListBox();
+        }
+        private void FillClassListBox()
+        {
+            ClassComboBox.ItemsSource = _characterManager.RetrieveAllClasses();
+        }
+        private void FillRaceListBox()
+        {
+            RaceComboBox.ItemsSource = _characterManager.RetrieveAllRaces();
+        }
+
+        private void AddCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            _characterManager.AddCharacter(CharacerNameInput.Text, ClassComboBox.SelectedItem.ToString(), RaceComboBox.SelectedItem.ToString());
         }
     }
 }

@@ -10,7 +10,29 @@ namespace DnDCharacterBuilderData
     {
         public override string ToString()
         {
-            return $"{CharacterName}-{Class}-{Race}";
+            return $"{CharacterId}-{CharacterName}-{Class}-{Race}";
+        }
+    }
+    public partial class Classes
+    {
+        public override string ToString()
+        {
+            return $"{ClassName}";
+        }
+    }
+    public partial class Races
+    {
+        public override string ToString()
+        {
+            if (SubRaceName != null)
+            {
+                return $"{SubRaceName} {RaceName}";
+            }
+            else
+            {
+                return $"{RaceName}";
+            }
+            
         }
     }
 }
