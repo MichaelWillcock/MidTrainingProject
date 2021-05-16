@@ -63,9 +63,22 @@ namespace DnDCharacterBuilderGUI
             int Intelligence = Int32.Parse(IntelligenceScoreListBox.Text);
             int Wisdom = Int32.Parse(WisdomScoreListBox.Text);
             int Charisma = Int32.Parse(CharismaScoreListBox.Text);
-            _statlineManager.AddStatlineToCharacter(_characterManager.ReturnActiveCharId(),
+            if (StrengthScoreListBox.SelectedIndex == DexterityScoreListBox.SelectedIndex || StrengthScoreListBox.SelectedIndex == ConstitutionScoreListBox.SelectedIndex || StrengthScoreListBox.SelectedIndex == IntelligenceScoreListBox.SelectedIndex || StrengthScoreListBox.SelectedIndex == WisdomScoreListBox.SelectedIndex || StrengthScoreListBox.SelectedIndex == CharismaScoreListBox.SelectedIndex)
+            { MessageBox.Show("Error: Cannot input duplicate stats, please alter selection"); }
+            else if (DexterityScoreListBox.SelectedIndex == ConstitutionScoreListBox.SelectedIndex || DexterityScoreListBox.SelectedIndex == IntelligenceScoreListBox.SelectedIndex || DexterityScoreListBox.SelectedIndex == WisdomScoreListBox.SelectedIndex || DexterityScoreListBox.SelectedIndex == CharismaScoreListBox.SelectedIndex)
+            { MessageBox.Show("Error: Cannot input duplicate stats, please alter selection"); }
+            else if (ConstitutionScoreListBox.SelectedIndex == IntelligenceScoreListBox.SelectedIndex || ConstitutionScoreListBox.SelectedIndex == WisdomScoreListBox.SelectedIndex || ConstitutionScoreListBox.SelectedIndex == CharismaScoreListBox.SelectedIndex)
+            { MessageBox.Show("Error: Cannot input duplicate stats, please alter selection"); }
+            else if (IntelligenceScoreListBox.SelectedIndex == WisdomScoreListBox.SelectedIndex || IntelligenceScoreListBox.SelectedIndex == CharismaScoreListBox.SelectedIndex)
+            { MessageBox.Show("Error: Cannot input duplicate stats, please alter selection"); }
+            else if (WisdomScoreListBox.SelectedIndex == CharismaScoreListBox.SelectedIndex)
+            { MessageBox.Show("Error: Cannot input duplicate stats, please alter selection"); }
+            else
+            {
+                _statlineManager.AddStatlineToCharacter(_characterManager.ReturnActiveCharId(),
                 Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma);
-            this.Close();
+                this.Close();
+            }
         }
         private void DisgardScores_Click(object sender, RoutedEventArgs e)
         {

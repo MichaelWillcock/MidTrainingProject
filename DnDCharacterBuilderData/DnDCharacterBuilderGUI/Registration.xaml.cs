@@ -30,22 +30,29 @@ namespace DnDCharacterBuilderGUI
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
             bool userCheck = _userManager.CheckUserName(UserNameInput.Text, false);
-            if (userCheck == false)
+            if (UserNameInput.Text.Length < 1 || PasswordInput.Password.Length < 1)
             {
-                if (PasswordInput.Password != ConfirmPasswordInput.Password)
-                {
-                    MessageBox.Show("Error - Passwords do not match");
-                }
-                else
-                {
-                    _userManager.AddUser(UserNameInput.Text, PasswordInput.Password);
-                    var mainWindow = (MainWindow)Application.Current.MainWindow;
-                    mainWindow?.ChangeView(new Login());
-                }
+                MessageBox.Show("Error: Username and/or Password must be at least 1 character");
             }
             else
             {
-                MessageBox.Show("Error - Username taken, please enter a different one");
+                if (userCheck == false)
+                {
+                    if (PasswordInput.Password != ConfirmPasswordInput.Password)
+                    { MessageBox.Show("Error: Passwords do not match"); }
+                    else if (PasswordInput.Password.Length < 6)
+                    { MessageBox.Show("Error: Password must contain at least 6 characters"); }
+                    else
+                    {
+                        _userManager.AddUser(UserNameInput.Text, PasswordInput.Password);
+                        var mainWindow = (MainWindow)Application.Current.MainWindow;
+                        mainWindow?.ChangeView(new Login());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error: Username taken, please enter a different one");
+                }
             }
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)

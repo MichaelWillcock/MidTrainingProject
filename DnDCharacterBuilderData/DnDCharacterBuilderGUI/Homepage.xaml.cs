@@ -54,9 +54,17 @@ namespace DnDCharacterBuilderGUI
         }
         private void AddCharacter_Click(object sender, RoutedEventArgs e)
         {
-            _characterManager.AddCharacter("Name", "Class", "Race");
-            AddCharacter addCharacter = new AddCharacter();
-            addCharacter.Show();
+            if (_characterManager.IsThereAnActiveCharacter() == true)
+            {
+                _characterManager.AddCharacter("Name", "Class", "Race");
+                AddCharacter addCharacter = new AddCharacter();
+                addCharacter.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error: A character is already either being viewed or created. Please close the character and try again");
+            }
+            
         }
         private void RemoveSelectedCharacter_Click(object sender, RoutedEventArgs e)
         {
@@ -74,13 +82,19 @@ namespace DnDCharacterBuilderGUI
         }
         private void OpenSelectedCharacter_Click(object sender, RoutedEventArgs e)
         {
-            _characterManager.DeleteActiveCharacter();
-            var selectedCharacter = CharacterListBox.SelectedItem;
-            string[] characterIdString = selectedCharacter.ToString().Split("-");
-            int characterId = Int32.Parse(characterIdString[0]);
-            _characterManager.AddCharacterToActiveCharacters(characterId);
-            ViewCharacter viewCharacter = new ViewCharacter();
-            viewCharacter.Show();
+            if (_characterManager.IsThereAnActiveCharacter() == true)
+            {
+                var selectedCharacter = CharacterListBox.SelectedItem;
+                string[] characterIdString = selectedCharacter.ToString().Split("-");
+                int characterId = Int32.Parse(characterIdString[0]);
+                _characterManager.AddCharacterToActiveCharacters(characterId);
+                ViewCharacter viewCharacter = new ViewCharacter();
+                viewCharacter.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error: A character is already either being viewed or created. Please close the character and try again");
+            }
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)

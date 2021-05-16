@@ -222,5 +222,63 @@ namespace DnDCharacterBuilderBusiness
                 db.SaveChanges();
             }
         }
+        public string ReturnCharacterName()
+        {
+            string name = "";
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select c;
+                foreach (var words in query)
+                {
+                    name = words.CharacterName;
+                }
+            }
+            return name;
+        }
+        public string ReturnCharacterRace()
+        {
+            string name = "";
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select c;
+                foreach (var words in query)
+                {
+                    name = words.Race;
+                }
+            }
+            return name;
+        }
+        public string ReturnCharacterClass()
+        {
+            string name = "";
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select c;
+                foreach (var words in query)
+                {
+                    name = words.Class;
+                }
+            }
+            return name;
+        }
+        public bool IsThereAnActiveCharacter()
+        {
+            bool active = true;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query = db.activeCharacters.Count();
+                if (query != 0)
+                {
+                    active = false;
+                }
+            }
+            return active;
+        }
     }
 }

@@ -31,5 +31,11 @@
         <TextBlock x:Name="ChaMod" HorizontalAlignment="Left" Margin="345,314,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
         <TextBlock HorizontalAlignment="Left" Margin="255,135,0,0" Text="Score" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="340,135,0,0" Text="Mod" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="215,29,0,0" Text="Name: " FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="215,57,0,0" Text="Race: " FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="215,85,0,0" Text="Class: " FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="NameBox" HorizontalAlignment="Left" Margin="290,29,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="RaceBox" HorizontalAlignment="Left" Margin="290,57,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ClassBox" HorizontalAlignment="Left" Margin="290,85,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>

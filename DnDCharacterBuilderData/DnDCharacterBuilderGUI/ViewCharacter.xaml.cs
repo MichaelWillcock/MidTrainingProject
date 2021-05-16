@@ -24,14 +24,15 @@ namespace DnDCharacterBuilderGUI
         {
             InitializeComponent();
             FillAbilityScoreBoxes();
+            FillCharacterDetails();
         }
         private void ExitCharacterCreation_Click(object sender, RoutedEventArgs e)
         {
-            _characterManager.DeleteActiveCharacter();
             if (MessageBox
                     .Show("Are you sure you wish to exit?",
                     "Exit Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+                _characterManager.DeleteActiveCharacter();
                 this.Close();
             }
         }
@@ -49,6 +50,12 @@ namespace DnDCharacterBuilderGUI
             IntScore.Text = Intelligence[0]; IntMod.Text = Intelligence[1];
             WisScore.Text = Wisdom[0]; WisMod.Text = Wisdom[1];
             ChaScore.Text = Charisma[0]; ChaMod.Text = Charisma[1];
+        }
+        private void FillCharacterDetails()
+        {
+            NameBox.Text = _characterManager.ReturnCharacterName();
+            RaceBox.Text = _characterManager.ReturnCharacterRace();
+            ClassBox.Text = _characterManager.ReturnCharacterClass();
         }
     }
 }
