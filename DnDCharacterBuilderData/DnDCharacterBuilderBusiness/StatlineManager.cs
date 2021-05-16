@@ -114,7 +114,81 @@ namespace DnDCharacterBuilderBusiness
                     db.SaveChanges();
                 }
             }
-            
+        }
+        public List<List<string>> ReturnAbilityScoresAndModifiers(int characterID)
+        {
+            List<List<string>> abilities = new List<List<string>>();
+            List<string> strength = new List<string>();
+            List<string> dexterity = new List<string>();
+            List<string> constitution = new List<string>();
+            List<string> intelligence = new List<string>();
+            List<string> wisdom = new List<string>();
+            List<string> charisma = new List<string>();
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from s in db.Stats
+                    where s.CharacterId == characterID
+                    select new { s.Strength, s.Dexterity, s.Constitution, s.Intelligence, s.Wisdom, s.Charisma };
+                foreach (var score in query)
+                {
+                    strength.Add(score.Strength.ToString());
+                    if (score.Strength < 10)
+                    {
+                        strength.Add($"- {((score.Strength - 10) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        strength.Add($"+{((score.Strength - 10) / 2).ToString()}");
+                    }
+                    dexterity.Add(score.Dexterity.ToString());
+                    if (score.Dexterity < 10)
+                    {
+                        dexterity.Add($"- {((score.Dexterity - 10) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        dexterity.Add($"+{((score.Dexterity - 10) / 2).ToString()}");
+                    }
+                    constitution.Add(score.Constitution.ToString());
+                    if (score.Constitution < 10)
+                    {
+                        constitution.Add($"- {((score.Constitution - 10) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        constitution.Add($"+{((score.Constitution - 10) / 2).ToString()}");
+                    }
+                    intelligence.Add(score.Intelligence.ToString());
+                    if (score.Intelligence < 10)
+                    {
+                        intelligence.Add($"- {((score.Intelligence - 10) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        intelligence.Add($"+{((score.Intelligence - 10) / 2).ToString()}");
+                    }
+                    wisdom.Add(score.Wisdom.ToString());
+                    if (score.Wisdom < 10)
+                    {
+                        wisdom.Add($"- {((score.Wisdom - 10) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        wisdom.Add($"+{((score.Wisdom - 10) / 2).ToString()}");
+                    }
+                    charisma.Add(score.Charisma.ToString());
+                    if (score.Charisma < 10)
+                    {
+                        charisma.Add($"- {((score.Charisma - 10) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        charisma.Add($"+{((score.Charisma - 10) / 2).ToString()}");
+                    }
+                }
+            }
+            return abilities;
         }
     }
 }

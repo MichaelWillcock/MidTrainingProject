@@ -69,6 +69,15 @@ namespace DnDCharacterBuilderGUI
                 FillListBox();
             }
         }
+        private void OpenSelectedCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedCharacter = CharacterListBox.SelectedItem;
+            string[] characterIdString = selectedCharacter.ToString().Split("-");
+            int characterId = Int32.Parse(characterIdString[0]);
+            _characterManager.AddCharacterToActiveCharacters(characterId);
+            ViewCharacter viewCharacter = new ViewCharacter();
+            viewCharacter.Show();
+        }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
