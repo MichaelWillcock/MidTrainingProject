@@ -141,7 +141,7 @@ namespace DnDCharacterBuilderGUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DnDCharacterBuilderGUI;V1.0.0.0;component/statgenerator.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DnDCharacterBuilderGUI;component/statgenerator.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\StatGenerator.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

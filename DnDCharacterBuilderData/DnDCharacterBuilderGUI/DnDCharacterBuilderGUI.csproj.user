@@ -10,10 +10,13 @@
     <Compile Update="AddCharacter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AddedCharacter.xaml.cs">
+    <Compile Update="AlternativeScores.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AlternativeScores.xaml.cs">
+    <Compile Update="BaseAlternative.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HalfElf.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Homepage.xaml.cs">
@@ -31,15 +34,21 @@
     <Compile Update="UserSettings.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="VariantHuman.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddCharacter.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="AddedCharacter.xaml">
+    <Page Update="AlternativeScores.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="AlternativeScores.xaml">
+    <Page Update="BaseAlternative.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HalfElf.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Homepage.xaml">
@@ -58,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserSettings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VariantHuman.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

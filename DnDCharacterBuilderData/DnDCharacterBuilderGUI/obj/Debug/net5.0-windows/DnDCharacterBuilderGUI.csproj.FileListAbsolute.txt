@@ -82,5 +82,9 @@ C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\StatGenerator.baml
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AlternativeScores.g.cs
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AlternativeScores.baml
-C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AddedCharacter.g.cs
-C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\AddedCharacter.baml
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\BaseAlternative.g.cs
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\HalfElf.g.cs
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\VariantHuman.g.cs
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\BaseAlternative.baml
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\HalfElf.baml
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderGUI\obj\Debug\net5.0-windows\VariantHuman.baml
