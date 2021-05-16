@@ -42,13 +42,16 @@ namespace DnDCharacterBuilderGUI
 
         private void AddCharacter_Click(object sender, RoutedEventArgs e)
         {
-            if (RaceComboBox.Text.Contains("Varient") || RaceComboBox.Text.Contains("Half elf"))
+            _characterManager.UdateCharacterDetails(CharacerNameInput.Text, ClassComboBox.Text, RaceComboBox.Text);
+            if (RaceComboBox.Text.Contains("Varient") || RaceComboBox.Text.Contains("Half Elf"))
             {
-                
+                this.Close();
+                AlternativeScores alternativeScores = new AlternativeScores();
+                alternativeScores.Show();
             }
             else
             {
-                _characterManager.UdateCharacterDetails(CharacerNameInput.Text, ClassComboBox.Text, RaceComboBox.Text);
+                
                 _statlineManager.AddedRacialModifieresToStatLine(_characterManager.ReturnActiveCharId(), RaceComboBox.Text);
                 _characterManager.DeleteActiveCharacter();
                 this.Close();

@@ -24,6 +24,7 @@ namespace DnDCharacterBuilderGUI
     {
         private LoginManager _loginManager = new LoginManager();
         private CharacterManager _characterManager = new CharacterManager();
+        private StatlineManager _statlineManager = new StatlineManager();
         public Homepage()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace DnDCharacterBuilderGUI
                     "Logout", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 _loginManager.DeleteLoggedInUser();
+                _characterManager.DeleteActiveCharacter();
                 var mainWindow = (MainWindow)Application.Current.MainWindow;
                 mainWindow?.ChangeView(new Login());
             }
@@ -65,12 +67,14 @@ namespace DnDCharacterBuilderGUI
                 var selectedCharacter = CharacterListBox.SelectedItem;
                 string[] characterIdString = selectedCharacter.ToString().Split("-");
                 int characterId = Int32.Parse(characterIdString[0]);
+                _statlineManager.DeleteStatsWhenCharacterDeleted(characterId);
                 _characterManager.RemoveCharacter(characterId);
                 FillListBox();
             }
         }
         private void OpenSelectedCharacter_Click(object sender, RoutedEventArgs e)
         {
+            _characterManager.DeleteActiveCharacter();
             var selectedCharacter = CharacterListBox.SelectedItem;
             string[] characterIdString = selectedCharacter.ToString().Split("-");
             int characterId = Int32.Parse(characterIdString[0]);
@@ -81,6 +85,7 @@ namespace DnDCharacterBuilderGUI
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
+            _characterManager.DeleteActiveCharacter();
             FillListBox();
         }
     }

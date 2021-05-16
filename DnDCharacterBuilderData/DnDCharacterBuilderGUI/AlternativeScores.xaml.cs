@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DnDCharacterBuilderBusiness;
+using DnDCharacterBuilderData;
 
 namespace DnDCharacterBuilderGUI
 {
@@ -19,20 +21,17 @@ namespace DnDCharacterBuilderGUI
     /// </summary>
     public partial class AlternativeScores : Window
     {
+        private CharacterManager _characterManager = new CharacterManager();
+        private StatlineManager _statlineManager = new StatlineManager();
         public AlternativeScores()
         {
             InitializeComponent();
-            Application.Current.MainWindow = this;
-            Loaded += OnMainWindowLoaded;
         }
-        private void OnMainWindowLoaded(object sender, RoutedEventArgs e)
+        public void Submit_Click(object sender, RoutedEventArgs e)
         {
-            ChangeView(new Login());
-        }
-
-        public void ChangeView(Page view)
-        {
-            MainFrame.NavigationService.Navigate(view);
+            _statlineManager.HalfElfOrVariantASI(PrimaryASI.Text, SecondaryASI.Text);
+            _characterManager.DeleteActiveCharacter();
+            this.Close();
         }
     }
 }

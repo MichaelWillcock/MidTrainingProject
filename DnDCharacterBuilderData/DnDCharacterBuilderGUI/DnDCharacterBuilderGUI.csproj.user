@@ -13,12 +13,6 @@
     <Compile Update="AlternativeScores.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="BaseAlternative.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="HalfElf.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Homepage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,9 +28,6 @@
     <Compile Update="UserSettings.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="VariantHuman.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="ViewCharacter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,12 +37,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AlternativeScores.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="BaseAlternative.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="HalfElf.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Homepage.xaml">
@@ -70,9 +55,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserSettings.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="VariantHuman.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewCharacter.xaml">

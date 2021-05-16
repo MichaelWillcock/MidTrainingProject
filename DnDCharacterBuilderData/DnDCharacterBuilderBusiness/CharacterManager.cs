@@ -193,6 +193,7 @@ namespace DnDCharacterBuilderBusiness
         public void UdateCharacterDetails(string name, string Class, string race)
         {
             int charID = 0;
+            int activeID = 0;
             using (var db = new DnDCharacterBuilderDataContext())
             {
                 var query =
@@ -206,10 +207,18 @@ namespace DnDCharacterBuilderBusiness
                 editCharacter.CharacterName = name;
                 editCharacter.Class = Class;
                 editCharacter.Race = race;
-                var editActiveCharacter = db.activeCharacters.Find(charID);
-                editCharacter.CharacterName = name;
-                editCharacter.Class = Class;
-                editCharacter.Race = race;
+                var query2 =
+                    from c in db.activeCharacters
+                    where c.CharacterId == charID
+                    select c.ActiveCharacterId;
+                foreach (var number in query2)
+                {
+                    activeID = number;
+                }
+                var editActiveCharacter = db.activeCharacters.Find(activeID);
+                editActiveCharacter.CharacterName = name;
+                editActiveCharacter.Class = Class;
+                editActiveCharacter.Race = race;
                 db.SaveChanges();
             }
         }

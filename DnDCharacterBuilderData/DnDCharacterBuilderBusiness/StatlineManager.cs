@@ -42,26 +42,23 @@ namespace DnDCharacterBuilderBusiness
             int SecondaryIncrease = 0;
             if (race.Contains("Human") || race.Contains("Half Elf"))
             {
-                if (race.Contains("Human") && race.Length <= 5)
+                using (var db = new DnDCharacterBuilderDataContext())
                 {
-                    using (var db = new DnDCharacterBuilderDataContext())
+                    var statIdQuery =
+                    from s in db.Stats
+                    where s.CharacterId == charID
+                    select s.StatLineId;
+                    foreach (var number in statIdQuery)
                     {
-                        var statIdQuery =
-                        from s in db.Stats
-                        where s.CharacterId == charID
-                        select s.StatLineId;
-                        foreach (var number in statIdQuery)
-                        {
-                            statID = number;
-                        }
-                        var statline = db.Stats.Find(statID);
-                        statline.Strength += 1;
-                        statline.Dexterity += 1;
-                        statline.Constitution += 1;
-                        statline.Intelligence += 1;
-                        statline.Wisdom += 1;
-                        statline.Charisma += 1;
+                        statID = number;
                     }
+                    var statline = db.Stats.Find(statID);
+                    statline.Strength += 1;
+                    statline.Dexterity += 1;
+                    statline.Constitution += 1;
+                    statline.Intelligence += 1;
+                    statline.Wisdom += 1;
+                    statline.Charisma += 1;
                 }
             }
             else
@@ -115,80 +112,226 @@ namespace DnDCharacterBuilderBusiness
                 }
             }
         }
-        public List<List<string>> ReturnAbilityScoresAndModifiers(int characterID)
+        public void HalfElfOrVariantASI(string ASI1, string ASI2)
         {
-            List<List<string>> abilities = new List<List<string>>();
+            int charID = 0;
+            int statID = 0;
+            string race = "";
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select new { c.CharacterId, c.Race };
+                foreach (var character in query)
+                {
+                    charID = character.CharacterId;
+                    race = character.Race;
+                }
+                var statIdQuery =
+                        from s in db.Stats
+                        where s.CharacterId == charID
+                        select s.StatLineId;
+                foreach (var number in statIdQuery)
+                {
+                    statID = number;
+                }
+                if (race.Contains("Half Elf"))
+                {
+                    var character = db.Stats.Find(statID);
+                    character.Charisma += 2;
+                    if (ASI1.Contains("Strength"))
+                    { character.Strength += 1; }
+                    else if (ASI1.Contains("Dexterity"))
+                    { character.Dexterity += 1; }
+                    else if (ASI1.Contains("Constitution"))
+                    { character.Constitution += 1; }
+                    else if (ASI1.Contains("Intelligence"))
+                    { character.Intelligence += 1; }
+                    else { character.Wisdom += 1; }
+                    if (ASI2.Contains("Strength"))
+                    { character.Strength += 1; }
+                    else if (ASI2.Contains("Dexterity"))
+                    { character.Dexterity += 1; }
+                    else if (ASI2.Contains("Constitution"))
+                    { character.Constitution += 1; }
+                    else if (ASI2.Contains("Intelligence"))
+                    { character.Intelligence += 1; }
+                    else { character.Wisdom += 1; }
+                }
+                else
+                {
+                    var character = db.Stats.Find(statID);
+                    if (ASI1.Contains("Strength"))
+                    { character.Strength += 1; }
+                    else if (ASI1.Contains("Dexterity"))
+                    { character.Dexterity += 1; }
+                    else if (ASI1.Contains("Constitution"))
+                    { character.Constitution += 1; }
+                    else if (ASI1.Contains("Intelligence"))
+                    { character.Intelligence += 1; }
+                    else if (ASI1.Contains("Wisdom"))
+                    { character.Wisdom += 1; }
+                    else { character.Charisma += 1; }
+                    if (ASI2.Contains("Strength"))
+                    { character.Strength += 1; }
+                    else if (ASI2.Contains("Dexterity"))
+                    { character.Dexterity += 1; }
+                    else if (ASI2.Contains("Constitution"))
+                    { character.Constitution += 1; }
+                    else if (ASI2.Contains("Intelligence"))
+                    { character.Intelligence += 1; }
+                    else if (ASI2.Contains("Wisdom"))
+                    { character.Wisdom += 1; }
+                    else { character.Charisma += 1; }
+                }
+                db.SaveChanges();
+            }
+
+        }
+        public List<string> ReturnStrengthAndModifier(int characterID)
+        {
+
             List<string> strength = new List<string>();
-            List<string> dexterity = new List<string>();
-            List<string> constitution = new List<string>();
-            List<string> intelligence = new List<string>();
-            List<string> wisdom = new List<string>();
-            List<string> charisma = new List<string>();
             using (var db = new DnDCharacterBuilderDataContext())
             {
                 var query =
                     from s in db.Stats
                     where s.CharacterId == characterID
-                    select new { s.Strength, s.Dexterity, s.Constitution, s.Intelligence, s.Wisdom, s.Charisma };
+                    select s.Strength;
                 foreach (var score in query)
                 {
-                    strength.Add(score.Strength.ToString());
-                    if (score.Strength < 10)
+                    strength.Add(score.ToString());
+                    if (score < 10)
                     {
-                        strength.Add($"- {((score.Strength - 10) / 2).ToString()}");
+                        strength.Add($"- {(((score - 11) *(-1) )/ 2).ToString()}");
                     }
                     else
                     {
-                        strength.Add($"+{((score.Strength - 10) / 2).ToString()}");
-                    }
-                    dexterity.Add(score.Dexterity.ToString());
-                    if (score.Dexterity < 10)
-                    {
-                        dexterity.Add($"- {((score.Dexterity - 10) / 2).ToString()}");
-                    }
-                    else
-                    {
-                        dexterity.Add($"+{((score.Dexterity - 10) / 2).ToString()}");
-                    }
-                    constitution.Add(score.Constitution.ToString());
-                    if (score.Constitution < 10)
-                    {
-                        constitution.Add($"- {((score.Constitution - 10) / 2).ToString()}");
-                    }
-                    else
-                    {
-                        constitution.Add($"+{((score.Constitution - 10) / 2).ToString()}");
-                    }
-                    intelligence.Add(score.Intelligence.ToString());
-                    if (score.Intelligence < 10)
-                    {
-                        intelligence.Add($"- {((score.Intelligence - 10) / 2).ToString()}");
-                    }
-                    else
-                    {
-                        intelligence.Add($"+{((score.Intelligence - 10) / 2).ToString()}");
-                    }
-                    wisdom.Add(score.Wisdom.ToString());
-                    if (score.Wisdom < 10)
-                    {
-                        wisdom.Add($"- {((score.Wisdom - 10) / 2).ToString()}");
-                    }
-                    else
-                    {
-                        wisdom.Add($"+{((score.Wisdom - 10) / 2).ToString()}");
-                    }
-                    charisma.Add(score.Charisma.ToString());
-                    if (score.Charisma < 10)
-                    {
-                        charisma.Add($"- {((score.Charisma - 10) / 2).ToString()}");
-                    }
-                    else
-                    {
-                        charisma.Add($"+{((score.Charisma - 10) / 2).ToString()}");
+                        strength.Add($"+{((score - 10) / 2).ToString()}");
                     }
                 }
             }
-            return abilities;
+            return strength;
+        }
+        public List<string> ReturnDexterityScoreAndModifier(int characterID)
+        {
+            List<string> dexterity = new List<string>();
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from s in db.Stats
+                    where s.CharacterId == characterID
+                    select s.Dexterity;
+                foreach (var score in query)
+                {
+                    dexterity.Add(score.ToString());
+                    if (score < 10)
+                    {
+                        dexterity.Add($"- {(((score - 11) * (-1)) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        dexterity.Add($"+{((score - 10) / 2).ToString()}");
+                    }
+                }
+            }
+            return dexterity;
+        }
+        public List<string> ReturnConsitutionScoreAndModifier(int characterID)
+        {
+            List<string> constitution = new List<string>();
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from s in db.Stats
+                    where s.CharacterId == characterID
+                    select s.Constitution;
+                foreach (var score in query)
+                {
+                    constitution.Add(score.ToString());
+                    if (score < 10)
+                    {
+                        constitution.Add($"- {(((score - 11) * (-1)) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        constitution.Add($"+{((score - 10) / 2).ToString()}");
+                    }
+                }
+            }
+            return constitution;
+        }
+        public List<string> ReturnIntelligenceScoreAndModifier(int characterID)
+        {
+            List<string> intelligence = new List<string>();
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from s in db.Stats
+                    where s.CharacterId == characterID
+                    select s.Intelligence;
+                foreach (var score in query)
+                {
+                    intelligence.Add(score.ToString());
+                    if (score < 10)
+                    {
+                        intelligence.Add($"- {(((score - 11) * (-1)) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        intelligence.Add($"+{((score - 10) / 2).ToString()}");
+                    }
+                }
+            }
+            return intelligence;
+        }
+        public List<string> ReturnWisdomScoreAndModifier(int characterID)
+        {
+            List<string> wisdom = new List<string>();
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from s in db.Stats
+                    where s.CharacterId == characterID
+                    select s.Wisdom;
+                foreach (var score in query)
+                {
+                    wisdom.Add(score.ToString());
+                    if (score < 10)
+                    {
+                        wisdom.Add($"- {(((score - 11) * (-1)) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        wisdom.Add($"+{((score - 10) / 2).ToString()}");
+                    }
+                }
+            }
+            return wisdom;
+        }
+        public List<string> ReturnCharismaScoreAndModifier(int characterID)
+        {
+            List<string> charisma = new List<string>();
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                   from s in db.Stats
+                   where s.CharacterId == characterID
+                   select s.Charisma;
+                foreach (var score in query)
+                {
+                    charisma.Add(score.ToString());
+                    if (score < 10)
+                    {
+                        charisma.Add($"- {(((score - 11) * (-1)) / 2).ToString()}");
+                    }
+                    else
+                    {
+                        charisma.Add($"+{((score - 10) / 2).ToString()}");
+                    }
+                }
+            }
+            return charisma;
         }
     }
 }

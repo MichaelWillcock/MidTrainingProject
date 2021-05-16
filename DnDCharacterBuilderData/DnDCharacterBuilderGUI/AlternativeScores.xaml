@@ -5,11 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DnDCharacterBuilderGUI"
         mc:Ignorable="d"
-        Title="AlternativeScores" Height="450" Width="600">
+        Title="AlternativeScores" Height="200" Width="300">
     <Window.Background>
         <ImageBrush ImageSource="background.jpg"/>
     </Window.Background>
     <Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Left" Margin="80,20,0,0" Text="Choose first ability: " FontSize="15" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="80,70,0,0" Text="Choose second:  ability: " FontSize="15" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <ComboBox x:Name="PrimaryASI" HorizontalAlignment="Left" Margin="80,45,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Strength"></ComboBoxItem>
+            <ComboBoxItem Content="Dexterity"></ComboBoxItem>
+            <ComboBoxItem Content="Constitution"></ComboBoxItem>
+            <ComboBoxItem Content="Intelligence"></ComboBoxItem>
+            <ComboBoxItem Content="Wisdom"></ComboBoxItem>
+            <ComboBoxItem Content="Charisma"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="SecondaryASI" HorizontalAlignment="Left" Margin="80,95,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Strength"></ComboBoxItem>
+            <ComboBoxItem Content="Dexterity"></ComboBoxItem>
+            <ComboBoxItem Content="Constitution"></ComboBoxItem>
+            <ComboBoxItem Content="Intelligence"></ComboBoxItem>
+            <ComboBoxItem Content="Wisdom"></ComboBoxItem>
+            <ComboBoxItem Content="Charisma"></ComboBoxItem>
+        </ComboBox>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="120,130,0,0" VerticalAlignment="Top" Click="Submit_Click"/>
+
     </Grid>
 </Window>

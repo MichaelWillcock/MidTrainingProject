@@ -17,18 +17,18 @@
         <TextBlock HorizontalAlignment="Left" Margin="175,257,0,0" Text="Intelligence: " FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="175,287,0,0" Text="Wisdom: " FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="175,317,0,0" Text="Charisma: " FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="260,164,0,0" Text="11" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="270,194,0,0" Text="22" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="300,224,0,0" Text="33" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="290,254,0,0" Text="44" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="260,284,0,0" Text="55" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="265,314,0,0" Text="66" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="345,164,0,0" Text="11" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="345,194,0,0" Text="22" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="345,224,0,0" Text="33" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="345,254,0,0" Text="44" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="345,284,0,0" Text="55" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
-        <TextBlock HorizontalAlignment="Left" Margin="345,314,0,0" Text="66" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="StrengthScore" HorizontalAlignment="Left" Margin="260,164,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="DexScore" HorizontalAlignment="Left" Margin="270,194,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="ConScore" HorizontalAlignment="Left" Margin="300,224,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="IntScore" HorizontalAlignment="Left" Margin="290,254,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="WisScore" HorizontalAlignment="Left" Margin="260,284,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="ChaScore" HorizontalAlignment="Left" Margin="265,314,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="StrengthMod" HorizontalAlignment="Left" Margin="345,164,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="DexMod" HorizontalAlignment="Left" Margin="345,194,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="ConMod" HorizontalAlignment="Left" Margin="345,224,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="IntMod" HorizontalAlignment="Left" Margin="345,254,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="WisMod" HorizontalAlignment="Left" Margin="345,284,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
+        <TextBlock x:Name="ChaMod" HorizontalAlignment="Left" Margin="345,314,0,0" FontSize="25" VerticalAlignment="Top" Width="30" Height="30"/>
         <TextBlock HorizontalAlignment="Left" Margin="255,135,0,0" Text="Score" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="340,135,0,0" Text="Mod" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
