@@ -197,5 +197,6 @@ As a user I want to be able to level up my character
 6. Uncomment database additions located in program.cs of DnDCharacterBuilderData project and run to populate races and classes into database.
 7. navigate to the nuget package console manager and type in "Add-Migration InitialMigration", ensure console is set to DnDCharacterBuilderData and not the GUI then press enter
 8. Once the migration is added type in "Update-Database" and press enter.
-9. right click on DnDCharacterBuilderGUI and set it as start up project.
-10. Run project and use application.
+9. go to the program.cs file located in DnDCharacterBuilderData project and uncomment all lines inside the using statement including the db.SaveChanges() line (These should be lines 12 to 40). Then run the program. This adds the race and class data to the database. Close the console box when it has finished running.
+10. right click on DnDCharacterBuilderGUI and set it as start up project.
+11. Run project and use application.
