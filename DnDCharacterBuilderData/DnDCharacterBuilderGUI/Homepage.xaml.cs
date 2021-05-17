@@ -30,6 +30,7 @@ namespace DnDCharacterBuilderGUI
             InitializeComponent();
             Welcome.Text = $"Welcome...  {_loginManager.ReturnUserName()}!!";
             FillListBox();
+            _characterManager.DeleteActiveCharacter();
         }
         private void FillListBox()
         {

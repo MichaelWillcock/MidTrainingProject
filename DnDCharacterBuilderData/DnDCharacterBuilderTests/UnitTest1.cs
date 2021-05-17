@@ -103,7 +103,7 @@ namespace DnDCharacterBuilderTests
             }
         }
         [Test]
-        public void DeleteLoggedInUserDecreasesLoggedInCountByOne()
+        public void DeleteLoggedInUserClearsTable()
         {
             using (var db = new DnDCharacterBuilderDataContext())
             {
@@ -156,20 +156,27 @@ namespace DnDCharacterBuilderTests
                 Assert.AreEqual(preAddCount + 1, postAddCount);
             }
         }
-        //[Test]
-        //public void RemovedCharacterFromCharacters()
-        //{
-        //    _userManager.AddUser("TestName", "Password");
-        //    _loginManager.AddUserToLoggedIn("TestName");
-        //    _characterManager.AddCharacter("TestCharacter", "TestClass", "TestRace");
-        //    using (var db = new DnDCharacterBuilderDataContext())
-        //    {
-        //        var preDeleteCount = db.Characters.Count();
-        //        _characterManager.RemoveCharacter("TestCharacter");
-        //        var postDeleteCount = db.Characters.Count();
-        //        Assert.AreEqual(preDeleteCount, postDeleteCount+1);
-        //    }
-        //}
+        [Test]
+        public void RemovedCharacterFromCharacters()
+        {
+            _userManager.AddUser("TestName", "Password");
+            _loginManager.AddUserToLoggedIn("TestName");
+            _characterManager.AddCharacter("TestCharacter", "TestClass", "TestRace");
+            int CHARID = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var charID =
+                    from c in db.Characters
+                    where c.CharacterName == "TestCharacter"
+                    select c.CharacterId;
+                foreach (var number in charID)
+                { CHARID = number; }
+                var preDeleteCount = db.Characters.Count();
+                _characterManager.RemoveCharacter(CHARID);
+                var postDeleteCount = db.Characters.Count();
+                Assert.AreEqual(preDeleteCount, postDeleteCount + 1);
+            }
+        }
 
         [TearDown]
         public void TearDown()
