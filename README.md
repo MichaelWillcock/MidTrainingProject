@@ -118,6 +118,14 @@ As a user I want to be able to view, create, edit and delete my current characte
 - [x] 2.1 Given that a user wants to create a new character, when they click on the create character button, a new window will open, with a blank character sheet.
 - [x] 2.2 Given that a user wants to view a current character, when they click on the character in the list, then it will open up a new window showing the selected character.
 - [x] 2.3 Given that a user wants to delete a current character when they select the character and click delete then the character will be deleted after a confirmation message is displayed.
+Epic 2 - Creating a Character - User story 3 - Choosing a Class
+As a user I want to be able to choose my characters class from a descriptive selection
+- [x] 3.1 Given that a user wants to select their characters class, when they click on "classes" then a list of classes will appear for selection.
+- [x] 3.2 Given that a user has decided what class they want , when they select it, then the class is selected.
+Epic 2 - Creating a Character - User story 2 - Choosing a race
+As a user I want to be able to choose my characters race from a selection.
+- [x] 2.1 Given that a user wants to select their characters race, when they select the race they want their character to have, then that race is selected.
+- [x] 2.2 Given that a user has decided what race they want and have selected it, when they click "Add Character", then the race is added to their character sheet along with the abilities and their ability scores are updated.
 
 #### Sprint Timeline
 ![Homepage](https://user-images.githubusercontent.com/81698105/118544123-1c4b6500-b74d-11eb-8caf-1c6c87368101.png)
