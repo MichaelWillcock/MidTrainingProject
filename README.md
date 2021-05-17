@@ -74,7 +74,7 @@ Work for tomorrow's sprint will involve creating the user interface gui and char
 Epic 1 - User home page  - User Story 1 - User Settings
 As a user I want to be able to change my username and password should I wish
 #### Sprint goals from project backlog
-- [ ] 1.1 Given a user has successfully logged in, when the homepage loads, then they should be shown a list of their current created characters and see a create new character option and see a user settings option.
+- [x] 1.1 Given a user has successfully logged in, when the homepage loads, then they should be shown a list of their current created characters and see a create new character option and see a user settings option.
 - [x] 1.2 Given that a user wants to change their user name or password, when they click on the user settings option they will be taken to a separate page with buttons to change or reset their username/password
 - [x] 1.3 Given that a user wants to change their password, when they enter their new password and confirm it, then the data base is updated with their new password details
 - [x] 1.4 Given that a user wants to change their user name, when they enter their new user name and confirm it, then the data base is user name with their new user name details.
@@ -93,6 +93,7 @@ This screenshot just shows the updated login table, with the single loaded row, 
 The creation of the user settings page completes sprint goal 1.2 and begins to demonstrate the functionality needed to complete sprint goals 1.3 & 1.4. Here one can enter a different user name and password and after clicking the respective buttons the corresponding data will be updated in the database as seen in the following screenshots.
 
 ![UpdatedUsername](https://user-images.githubusercontent.com/81698105/118168845-33721600-b420-11eb-8d90-c3c293963562.png)
+
 ![UpdatedPassword](https://user-images.githubusercontent.com/81698105/118168863-379e3380-b420-11eb-8439-04b142bae2e3.png)
 
 
@@ -129,7 +130,13 @@ As a user I want to be able to choose my characters race from a selection.
 
 #### Sprint Timeline
 ![Homepage](https://user-images.githubusercontent.com/81698105/118544123-1c4b6500-b74d-11eb-8caf-1c6c87368101.png)
+
 ![AddCharacter](https://user-images.githubusercontent.com/81698105/118544132-1eadbf00-b74d-11eb-9af7-a75427a3cd9a.png)
+
+![Choose Race](https://user-images.githubusercontent.com/81698105/118547792-72220c00-b751-11eb-857a-dfe6f2ce3e1e.png)
+
+![Choose Class](https://user-images.githubusercontent.com/81698105/118547809-764e2980-b751-11eb-9201-c05367cf5b95.png)
+
 ![RemoveCharacter](https://user-images.githubusercontent.com/81698105/118544138-22414600-b74d-11eb-83de-24e06fd23bc3.png)
 
 #### Sprint Retrospective
@@ -145,8 +152,11 @@ As a user I want to be able to generate my characters 6 core ability scores
 
 #### Sprint Timeline
 ![StatGenWindow](https://user-images.githubusercontent.com/81698105/118544408-44d35f00-b74d-11eb-82b6-6d5a06f4641c.png)
+
 ![RolledScoresButSwitched](https://user-images.githubusercontent.com/81698105/118544416-47ce4f80-b74d-11eb-938d-dbf17338f8f4.png)
+
 ![SelectingAlternativeScores](https://user-images.githubusercontent.com/81698105/118544419-49981300-b74d-11eb-88d5-ba7bf5d5b058.png)
+
 ![NewCharWithStats](https://user-images.githubusercontent.com/81698105/118544427-4ac94000-b74d-11eb-82fd-dee55f850873.png)
 
 #### Sprint Retrospective
