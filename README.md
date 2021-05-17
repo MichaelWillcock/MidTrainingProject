@@ -111,13 +111,48 @@ Created unit tests for all of the methods used in the UserManager and LoginManag
 Epic 1 - User home page  - User Story 1 - User Settings
 As a user I want to be able to change my username and password should I wish
 #### Sprint goals from project backlog
-- [ ] 1.1 Given a user has successfully logged in, when the homepage loads, then they should be shown a list of their current created characters and see a create new character option and see a user settings option.
+- [x] 1.1 Given a user has successfully logged in, when the homepage loads, then they should be shown a list of their current created characters and see a create new character option and see a user settings option.
 ### Sprint 4 goals from project backlog
 Epic 1 - User home page  - User Story 2 - new and current characters
 As a user I want to be able to view, create, edit and delete my current characters.
-- [ ] 2.1 Given that a user wants to create a new character, when they click on the create character button, a new window will open, with a blank character sheet and a dice roller attached to it.
-- [ ] 2.2 Given that a user wants to view and edit a current character, when they click on the character in the list, then it will open up a new window showing the selected character with a dice roller
-- [ ] 2.3 Given that a user wants to delete a current character when they select the character and click delete then the character will be deleted after a confirmation message is displayed.
-- [ ] 2.4 Given that a user wants to delete several characters, when they select a number of characters and click delete then the characters will be deleted after a confirmation message is displayed
+- [x] 2.1 Given that a user wants to create a new character, when they click on the create character button, a new window will open, with a blank character sheet.
+- [x] 2.2 Given that a user wants to view a current character, when they click on the character in the list, then it will open up a new window showing the selected character.
+- [x] 2.3 Given that a user wants to delete a current character when they select the character and click delete then the character will be deleted after a confirmation message is displayed.
 
 #### Sprint Timeline
+![Homepage](https://user-images.githubusercontent.com/81698105/118544123-1c4b6500-b74d-11eb-8caf-1c6c87368101.png)
+![AddCharacter](https://user-images.githubusercontent.com/81698105/118544132-1eadbf00-b74d-11eb-9af7-a75427a3cd9a.png)
+![RemoveCharacter](https://user-images.githubusercontent.com/81698105/118544138-22414600-b74d-11eb-83de-24e06fd23bc3.png)
+
+#### Sprint Retrospective
+
+## Sprint 5 - 15/05/2021
+#### Sprint goals from project backlog
+Epic 2 - Creating a Character - User story 1 - Generating stats
+As a user I want to be able to generate my characters 6 core ability scores
+ - [x] 1.1 Given that a user wishes to generate a score when they click roll stat then a stat should be randomly determined and added to a list for reference.
+ - [x] 1.2 Given that a user has rolled their stats and they want to compare them to the average, when they click compare, then a dialogue box should come up comparing their stats to the standard set and advising on them whether or not they should switch.
+ - [x] 1.3 Given that the user has rolled less than average and want to switch, when they click on "use average stats" then their rolled list is dumped and replaced with the average set.
+ - [x] 1.4 Given that the user has an array of stats and wishes to assign them to their character, when they select "assign stat to *ability*" then the stat is assigned to the selected ability score.
+
+#### Sprint Timeline
+![StatGenWindow](https://user-images.githubusercontent.com/81698105/118544408-44d35f00-b74d-11eb-82b6-6d5a06f4641c.png)
+![RolledScoresButSwitched](https://user-images.githubusercontent.com/81698105/118544416-47ce4f80-b74d-11eb-938d-dbf17338f8f4.png)
+![SelectingAlternativeScores](https://user-images.githubusercontent.com/81698105/118544419-49981300-b74d-11eb-88d5-ba7bf5d5b058.png)
+![NewCharWithStats](https://user-images.githubusercontent.com/81698105/118544427-4ac94000-b74d-11eb-82fd-dee55f850873.png)
+
+#### Sprint Retrospective
+
+## Sprint 6 - 16/05/2021
+#### Sprint goals from project backlog
+Epic 3 - Using a Character - User story 1 - Viewing abilities
+As a user once my character is fully created I want to be able to view its abilities in greater detail to get a better understanding of what they can do.
+- [ ] 1.1 Given my character is fully created and that I want to see what abilities I have, when I click on my ability names then a dialogue box should open explaining in greater detail what they do.
+#### Sprint Timeline
+![ShowsGennedStats](https://user-images.githubusercontent.com/81698105/118545699-dabbb980-b74e-11eb-8507-9f2eac8fd502.png)
+#### Sprint Retrospective
+
+## Sprint 7 - 17/05/2021
+#### Sprint goals from project backlog
+#### Sprint Timeline
+#### Sprint Retrospective
