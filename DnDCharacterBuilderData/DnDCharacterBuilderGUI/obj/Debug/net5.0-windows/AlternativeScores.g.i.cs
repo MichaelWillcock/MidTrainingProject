@@ -69,7 +69,7 @@ namespace DnDCharacterBuilderGUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DnDCharacterBuilderGUI;component/alternativescores.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DnDCharacterBuilderGUI;V1.0.0.0;component/alternativescores.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AlternativeScores.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
