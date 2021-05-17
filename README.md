@@ -189,3 +189,13 @@ As a user I want to be able to level up my character
 #### Project Retrospective
 
 ### Project Set-up
+1. Clone Git Repository to your designated folder.
+2. Open the solution in visual studio, ensuring that DnDCharacterBuilderBusiness, DnDCharacterBuilderData and DnDCharacterBuilderGUI projects are present.
+3. right click on DnDCharacterBuilderData and set it as start up project.
+4. go to the search bar at the top of visual studio and search for sql server object explorer. Open sql server object explorer, create a new database, right click on the created database and select properties.
+5. copy the connection string from properties into the DnDCharacterBuilderContext class located in the DnDCharacterBuilderData project, use comment for direction.
+6. Uncomment database additions located in program.cs of DnDCharacterBuilderData project and run to populate races and classes into database.
+7. navigate to the nuget package console manager and type in "Add-Migration InitialMigration", ensure console is set to DnDCharacterBuilderData and not the GUI then press enter
+8. Once the migration is added type in "Update-Database" and press enter.
+9. right click on DnDCharacterBuilderGUI and set it as start up project.
+10. Run project and use application.
