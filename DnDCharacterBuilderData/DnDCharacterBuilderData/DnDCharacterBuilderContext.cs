@@ -23,6 +23,7 @@ namespace DnDCharacterBuilderData
         {
             if (!options.IsConfigured)
             {
+                //Insert server connection string between quotation marks.
                 options.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = DndCharacterBuilder;");
             }
         }

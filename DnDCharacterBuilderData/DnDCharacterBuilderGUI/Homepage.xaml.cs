@@ -85,16 +85,23 @@ namespace DnDCharacterBuilderGUI
         {
             if (_characterManager.IsThereAnActiveCharacter() == true)
             {
-                var selectedCharacter = CharacterListBox.SelectedItem;
-                string[] characterIdString = selectedCharacter.ToString().Split("-");
-                int characterId = Int32.Parse(characterIdString[0]);
-                _characterManager.AddCharacterToActiveCharacters(characterId);
-                ViewCharacter viewCharacter = new ViewCharacter();
-                viewCharacter.Show();
+                MessageBox.Show("Error: Please select a character to view");
             }
             else
             {
-                MessageBox.Show("Error: A character is already either being viewed or created. Please close the character and try again");
+                if (_characterManager.IsThereAnActiveCharacter() == true)
+                {
+                    var selectedCharacter = CharacterListBox.SelectedItem;
+                    string[] characterIdString = selectedCharacter.ToString().Split("-");
+                    int characterId = Int32.Parse(characterIdString[0]);
+                    _characterManager.AddCharacterToActiveCharacters(characterId);
+                    ViewCharacter viewCharacter = new ViewCharacter();
+                    viewCharacter.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Error: A character is already either being viewed or created. Please close the character and try again");
+                }
             }
         }
 

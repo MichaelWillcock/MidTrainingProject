@@ -39,7 +39,14 @@ namespace DnDCharacterBuilderGUI
             bool userCheck = _userManager.CheckUserName(UserNameInput.Text, false);
             if(userCheck == false)
             {
-                _loginManager.ChangeUserName(UserNameInput.Text);
+                if(UserNameInput.Text.Length < 1)
+                {
+                    MessageBox.Show("Error: Username must contain at least one character");
+                }
+                else
+                {
+                    _loginManager.ChangeUserName(UserNameInput.Text);
+                }
             }
             else
             {
@@ -54,7 +61,14 @@ namespace DnDCharacterBuilderGUI
             }
             else
             {
-                _loginManager.ChangePassword(PasswordInput.Password);
+                if (PasswordInput.Password.Length < 1)
+                {
+                    MessageBox.Show("Error: Username must contain at least one character");
+                }
+                else
+                {
+                    _loginManager.ChangePassword(PasswordInput.Password);
+                }
             }
         }
     }
