@@ -1,3 +1,4 @@
+### Disclaimer - This project was built for demonstration purposes only, as such none of the entered passwords are encrypted and thus stored as plain text. Do not enter sensitive information when using this application for any reason!
 # MidTrainingProject
 The project is to build a 3 tier application involving a database, business layer and gui.
 
