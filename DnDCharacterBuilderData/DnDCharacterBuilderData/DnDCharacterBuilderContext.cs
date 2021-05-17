@@ -14,7 +14,6 @@ namespace DnDCharacterBuilderData
         public DbSet<User> Users { get; set; }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Classes> Class { get; set; }
-        public DbSet<Levels> Level { get; set; }
         public DbSet<Races> Race { get; set; }
         public DbSet<StatLine> Stats { get; set; }
         public DbSet<LoggedIn> loggedIns { get; set; }

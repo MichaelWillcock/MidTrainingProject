@@ -37,5 +37,11 @@
         <TextBlock x:Name="NameBox" HorizontalAlignment="Left" Margin="290,29,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="RaceBox" HorizontalAlignment="Left" Margin="290,57,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="ClassBox" HorizontalAlignment="Left" Margin="290,85,0,0" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="450,29,0,0" Text="Level: " FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="LevelBox" HorizontalAlignment="Left" Margin="510,33,0,0" Text="20" FontSize="15" TextWrapping="Wrap" VerticalAlignment="Top" Width="25"/>
+        <Button Content="Set Level" HorizontalAlignment="Left" Margin="465,64,0,0" VerticalAlignment="Top" Click="SetLevel_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="420,94,0,0" Text="Hit Points: " FontSize="20" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="HitPointBox" HorizontalAlignment="Left" Margin="510,100,0,0" FontSize="15" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
+        <ListBox x:Name="AbilitiesList" Width="250" Height="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="440,275,0,0"/>
     </Grid>
 </Window>

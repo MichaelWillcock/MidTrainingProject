@@ -13,5 +13,7 @@ namespace DnDCharacterBuilderData
         public int HitDice { get; set; }
         public string WeaponProficiencies { get; set; }
         public string ArmourProficiencies { get; set; }
+        public string Level1Abilities { get; set; }
+        public string Level2Abilities { get; set; }
     }
 }

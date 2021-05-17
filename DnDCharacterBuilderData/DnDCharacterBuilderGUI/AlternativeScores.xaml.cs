@@ -23,15 +23,24 @@ namespace DnDCharacterBuilderGUI
     {
         private CharacterManager _characterManager = new CharacterManager();
         private StatlineManager _statlineManager = new StatlineManager();
+        private DetailManager _detailManager = new DetailManager();
         public AlternativeScores()
         {
             InitializeComponent();
         }
         public void Submit_Click(object sender, RoutedEventArgs e)
         {
-            _statlineManager.HalfElfOrVariantASI(PrimaryASI.Text, SecondaryASI.Text);
-            _characterManager.DeleteActiveCharacter();
-            this.Close();
+            if (_characterManager.ReturnCharacterRace() == "Half Elf" && (PrimaryASI.Text == "Charisma" || SecondaryASI.Text == "Charmisma"))
+            {
+                MessageBox.Show("Error: Additional bonuses cannot be applied to Charisma, please select another option");
+            }
+            else
+            {
+                _statlineManager.HalfElfOrVariantASI(PrimaryASI.Text, SecondaryASI.Text);
+                _detailManager.AssignFirstLevelAndHitPoints();
+                _characterManager.DeleteActiveCharacter();
+                this.Close();
+            }
         }
     }
 }

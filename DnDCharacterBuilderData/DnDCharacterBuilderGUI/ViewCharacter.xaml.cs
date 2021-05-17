@@ -20,11 +20,15 @@ namespace DnDCharacterBuilderGUI
     {
         private CharacterManager _characterManager = new CharacterManager();
         private StatlineManager _statlineManager = new StatlineManager();
+        private DetailManager _detailManager = new DetailManager();
         public ViewCharacter()
         {
             InitializeComponent();
             FillAbilityScoreBoxes();
             FillCharacterDetails();
+            LevelBox.Text = _characterManager.ReturnCharacterLevel().ToString();
+            HitPointBox.Text = _characterManager.ReturnCharacterHP().ToString();
+            AbilitiesList.ItemsSource = _detailManager.ReturnRacialAndLevel1Abilities(_characterManager.ReturnActiveCharId(), _characterManager.ReturnCharacterLevel());
         }
         private void ExitCharacterCreation_Click(object sender, RoutedEventArgs e)
         {
@@ -56,6 +60,17 @@ namespace DnDCharacterBuilderGUI
             NameBox.Text = _characterManager.ReturnCharacterName();
             RaceBox.Text = _characterManager.ReturnCharacterRace();
             ClassBox.Text = _characterManager.ReturnCharacterClass();
+        }
+        private void GetCharAbilities()
+        {
+            List<string> abilities = new List<string>(); ;
+        }
+        private void SetLevel_Click(object sender, RoutedEventArgs e)
+        {
+            _detailManager.ChangeLevelAndUpdateHitPOints(Int32.Parse(LevelBox.Text));
+            LevelBox.Text = _characterManager.ReturnCharacterLevel().ToString();
+            HitPointBox.Text = _characterManager.ReturnCharacterHP().ToString();
+            AbilitiesList.ItemsSource = _detailManager.ReturnRacialAndLevel1Abilities(_characterManager.ReturnActiveCharId(), _characterManager.ReturnCharacterLevel());
         }
     }
 }

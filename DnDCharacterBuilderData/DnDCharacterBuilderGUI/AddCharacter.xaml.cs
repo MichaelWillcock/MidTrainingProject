@@ -24,6 +24,7 @@ namespace DnDCharacterBuilderGUI
     {
         private CharacterManager _characterManager = new CharacterManager();
         private StatlineManager _statlineManager = new StatlineManager();
+        private DetailManager _detailManager = new DetailManager();
         public AddCharacter()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace DnDCharacterBuilderGUI
             {
                 
                 _statlineManager.AddedRacialModifieresToStatLine(_characterManager.ReturnActiveCharId(), RaceComboBox.Text);
+                _detailManager.AssignFirstLevelAndHitPoints();
                 _characterManager.DeleteActiveCharacter();
                 this.Close();
             }

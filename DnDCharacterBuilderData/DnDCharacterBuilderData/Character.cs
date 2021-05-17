@@ -11,7 +11,6 @@ namespace DnDCharacterBuilderData
         public Character()
         {
             Stats = new HashSet<StatLine>();
-            Level = new HashSet<Levels>();
         }
         public int CharacterId { get; set; }
         public int UserId { get; set; }
@@ -19,7 +18,8 @@ namespace DnDCharacterBuilderData
         public string CharacterName { get; set; }
         public string Class { get; set; }
         public string Race { get; set; }
-        public virtual ICollection<Levels> Level { get; set; }
+        public int Level { get; set; }
+        public int HitPoints { get; set; }
         public virtual ICollection<StatLine> Stats { get; set; }
     }
 }

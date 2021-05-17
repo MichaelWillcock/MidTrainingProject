@@ -113,6 +113,8 @@ namespace DnDCharacterBuilderBusiness
         {
             List<string> userDeets = new List<string>();
             int userId = 0;
+            int level = 0;
+            int hitPOints = 0;
             using (var db = new DnDCharacterBuilderDataContext())
             {
                 var loggedin =
@@ -125,18 +127,20 @@ namespace DnDCharacterBuilderBusiness
                 var characterDetails =
                 from c in db.Characters
                 where c.CharacterId == characterId && c.UserId == userId
-                select new { c.UserId, c.UserName, c.CharacterId, c.CharacterName, c.Class, c.Race };
+                select new { c.UserId, c.UserName, c.CharacterId, c.CharacterName, c.Class, c.Race, c.Level, c.HitPoints };
 
                 foreach (var item in characterDetails)
                 {
                     userId = item.UserId;
+                    level = item.Level;
+                    hitPOints = item.HitPoints;
                     userDeets.Add(item.UserName);
                     userDeets.Add(item.CharacterName);
                     userDeets.Add(item.Class);
                     userDeets.Add(item.Race);
                 }
             }
-            var setActiveCharacter = new ActiveCharacter() { UserId = userId, UserName = userDeets[0], CharacterId = characterId, CharacterName = userDeets[1], Class = userDeets[2], Race = userDeets[3] };
+            var setActiveCharacter = new ActiveCharacter() { UserId = userId, UserName = userDeets[0], CharacterId = characterId, CharacterName = userDeets[1], Class = userDeets[2], Race = userDeets[3], Level = level, HitPoints = hitPOints };
             using (var db = new DnDCharacterBuilderDataContext())
             {
                 db.activeCharacters.Add(setActiveCharacter);
@@ -266,6 +270,36 @@ namespace DnDCharacterBuilderBusiness
                 }
             }
             return name;
+        }
+        public int ReturnCharacterLevel()
+        {
+            int level = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select c;
+                foreach (var words in query)
+                {
+                    level = words.Level;
+                }
+            }
+            return level;
+        }
+        public int ReturnCharacterHP()
+        {
+            int level = 0;
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var query =
+                    from c in db.activeCharacters
+                    select c;
+                foreach (var words in query)
+                {
+                    level = words.HitPoints;
+                }
+            }
+            return level;
         }
         public bool IsThereAnActiveCharacter()
         {
