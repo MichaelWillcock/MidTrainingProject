@@ -193,8 +193,7 @@ As a user I want to be able to level up my character
 2. Open the solution in visual studio, ensuring that DnDCharacterBuilderBusiness, DnDCharacterBuilderData and DnDCharacterBuilderGUI projects are present.
 3. right click on DnDCharacterBuilderData and set it as start up project.
 4. right click on DnDCharacterBuilderData and select manage NuGet packages
-5. Install entity framework core, entity framework tools and entity framework sql-server into visual studio
-6. navigate to the nuget package console manager and type in "Add-Migration Initial Migration" then press enter
-7. Once the migration is added type in "Update-Database" and press enter.
-8. right click on DnDCharacterBuilderGUI and set it as start up project.
-9. Run project and use application.
+5. navigate to the nuget package console manager and type in "Add-Migration Initial Migration" then press enter
+6. Once the migration is added type in "Update-Database" and press enter.
+7. right click on DnDCharacterBuilderGUI and set it as start up project.
+8. Run project and use application.
