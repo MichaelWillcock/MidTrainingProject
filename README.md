@@ -172,5 +172,20 @@ As a user once my character is fully created I want to be able to view its abili
 
 ## Sprint 7 - 17/05/2021
 #### Sprint goals from project backlog
+Epic 3 Using a Character - User story 4 - editing hit points
+As a user, when my character takes damage or is healed I want to be able to adjust its hit points accordingly
+- [ ] 4.1 Given that my character has taken damage/is healed and I want to adjust its hit points, when I select its hit points in the text box and edit the value then the new value should be saved to the sheet.
+Epic 3 Using a Character - User story 5 - Leveling up
+As a user I want to be able to level up my character 
+- [ ] 5.1 Given that I want to level up my character, when I click "set level" then then new hit points and abilities will be added to the character.
 #### Sprint Timeline
+
+![Level 1 example](https://user-images.githubusercontent.com/81698105/118549977-1b6a0180-b754-11eb-9c9b-25c26057b21c.png)
+
+![Level2 example](https://user-images.githubusercontent.com/81698105/118549995-21f87900-b754-11eb-8bf3-856b6e8cf952.png)
+
 #### Sprint Retrospective
+
+#### Project Retrospective
+
+### Project Set-up
