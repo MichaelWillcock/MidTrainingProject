@@ -40,7 +40,7 @@ namespace DnDCharacterBuilderBusiness
             int PrimaryIncrease = 0;
             string SecondaryASI = "";
             int SecondaryIncrease = 0;
-            if (race.Contains("Human") || race.Contains("Half Elf"))
+            if (race.Contains("Human"))
             {
                 using (var db = new DnDCharacterBuilderDataContext())
                 {
@@ -59,6 +59,7 @@ namespace DnDCharacterBuilderBusiness
                     statline.Intelligence += 1;
                     statline.Wisdom += 1;
                     statline.Charisma += 1;
+                    db.SaveChanges();
                 }
             }
             else

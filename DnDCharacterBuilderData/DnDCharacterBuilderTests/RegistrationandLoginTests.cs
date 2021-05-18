@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DnDCharacterBuilderTests
 {
-    public class Tests
+    public class RegistrationandLoginTests
     {
         UserManager _userManager;
         LoginManager _loginManager;
