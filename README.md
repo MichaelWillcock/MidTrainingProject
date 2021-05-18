@@ -210,6 +210,12 @@ As a user I want to be able to level up my character
 
 ![Level2 example](https://user-images.githubusercontent.com/81698105/118549995-21f87900-b754-11eb-8bf3-856b6e8cf952.png)
 
+![DatabaseClassDiagram](https://user-images.githubusercontent.com/81698105/118708193-554e0d00-b813-11eb-99e3-7ec2ce62d4ac.png)
+Here is the class diagram of the database, it is different from the initial ERD but thankfully I used the method first approach which meant I could easily update the database as needed when new tables and/or variables were required by the data.
+
+![UnitTests](https://user-images.githubusercontent.com/81698105/118708313-7adb1680-b813-11eb-9998-a6344bbecbc8.png)
+Here is a screenshot of all of the unit tests for the project. There should technically be more as the DetailManagerTests should test every race and class combo to fully test the entire functionality of the app. However, with 15 race options and 12 class options and 4 tests for each combination, there wasn't time to write 720 units to test all of those so I wrote out the tests for once specific race class combo and as the code is identical for all of the options, the tests should all pass any way.
+
 #### Sprint Retrospective
 The level up feature and hit point tracker progressed much smoother than I anticipated. Granted it only loads in the ability names and one can only advance a character one level but none the less I was very happy with the work I managed to complete today. With the level up feature being implemented my project now meets its definition of done as described in the project notes. Some user stories remain but due to a poor wording of the definition of done on my part they actually are required to be completed in order for the project to be considered done. The remaining user stories would add even more extensive customisation the the characters, allowing a player to select skills, features, equipment and a background and then use their character interactively with whilst playing a dnd 5e game. This would require significantly more time to be implemented however and due to me overestimating the scope of the project I barely managed to get everything done as it is, so I shall work on these features in my spare time in order to truly finish the project.
 ![ES7](https://user-images.githubusercontent.com/81698105/118703932-8415b480-b80e-11eb-8b83-060fdbe9824b.png)
