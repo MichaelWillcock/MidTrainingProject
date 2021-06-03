@@ -85,32 +85,45 @@ namespace DnDCharacterBuilderBusiness
                         SecondaryASI = data.SecondayASI;
                         SecondaryIncrease = data.SecondaryIncrease;
                     }
-                    var statline = db.Stats.Find(statID);
-                    if (PrimaryASI.Contains("Strength"))
-                    { statline.Strength += PrimaryIncrease; }
-                    else if (PrimaryASI.Contains("Dexterity"))
-                    { statline.Dexterity += PrimaryIncrease; }
-                    else if (PrimaryASI.Contains("Constitution"))
-                    { statline.Constitution += PrimaryIncrease; }
-                    else if (PrimaryASI.Contains("Intelligence"))
-                    { statline.Intelligence += PrimaryIncrease; }
-                    else if (PrimaryASI.Contains("Wisdom"))
-                    { statline.Wisdom += PrimaryIncrease; }
-                    else { statline.Charisma += PrimaryIncrease; }
-
-                    if (SecondaryASI.Contains("Strength"))
-                    { statline.Strength += SecondaryIncrease; }
-                    else if (SecondaryASI.Contains("Dexterity"))
-                    { statline.Dexterity += SecondaryIncrease; }
-                    else if (SecondaryASI.Contains("Constitution"))
-                    { statline.Constitution += SecondaryIncrease; }
-                    else if (SecondaryASI.Contains("Intelligence"))
-                    { statline.Intelligence += SecondaryIncrease; }
-                    else if (SecondaryASI.Contains("Wisdom"))
-                    { statline.Wisdom += SecondaryIncrease; }
-                    else { statline.Charisma += SecondaryIncrease; }
-                    db.SaveChanges();
+                    AddModifiersToStats(statID, PrimaryASI, PrimaryIncrease);
+                    AddModifiersToStats(statID, SecondaryASI, SecondaryIncrease);
                 }
+            }
+        }
+        public void AddModifiersToStats(int statID, string ASI, int Increase)
+        {
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var statline = db.Stats.Find(statID);
+                if (ASI.Contains("Strength"))
+                { statline.Strength += Increase; }
+                else if (ASI.Contains("Dexterity"))
+                { statline.Dexterity += Increase; }
+                else if (ASI.Contains("Constitution"))
+                { statline.Constitution += Increase; }
+                else if (ASI.Contains("Intelligence"))
+                { statline.Intelligence += Increase; }
+                else if (ASI.Contains("Wisdom"))
+                { statline.Wisdom += Increase; }
+                else { statline.Charisma += Increase; }
+                db.SaveChanges();
+            }
+        }
+        public void AddModifiersToHalfElf(int statID, string ASI)
+        {
+            using (var db = new DnDCharacterBuilderDataContext())
+            {
+                var statline = db.Stats.Find(statID);
+                if (ASI.Contains("Strength"))
+                { statline.Strength += 1; }
+                else if (ASI.Contains("Dexterity"))
+                { statline.Dexterity += 1; }
+                else if (ASI.Contains("Constitution"))
+                { statline.Constitution += 1; }
+                else if (ASI.Contains("Intelligence"))
+                { statline.Intelligence += 1; }
+                else { statline.Wisdom += 1; }
+                db.SaveChanges();
             }
         }
         public void HalfElfOrVariantASI(string ASI1, string ASI2)
@@ -140,50 +153,13 @@ namespace DnDCharacterBuilderBusiness
                 {
                     var character = db.Stats.Find(statID);
                     character.Charisma += 2;
-                    if (ASI1.Contains("Strength"))
-                    { character.Strength += 1; }
-                    else if (ASI1.Contains("Dexterity"))
-                    { character.Dexterity += 1; }
-                    else if (ASI1.Contains("Constitution"))
-                    { character.Constitution += 1; }
-                    else if (ASI1.Contains("Intelligence"))
-                    { character.Intelligence += 1; }
-                    else { character.Wisdom += 1; }
-                    if (ASI2.Contains("Strength"))
-                    { character.Strength += 1; }
-                    else if (ASI2.Contains("Dexterity"))
-                    { character.Dexterity += 1; }
-                    else if (ASI2.Contains("Constitution"))
-                    { character.Constitution += 1; }
-                    else if (ASI2.Contains("Intelligence"))
-                    { character.Intelligence += 1; }
-                    else { character.Wisdom += 1; }
+                    AddModifiersToHalfElf(statID, ASI1);
+                    AddModifiersToHalfElf(statID, ASI2);
                 }
                 else
                 {
-                    var character = db.Stats.Find(statID);
-                    if (ASI1.Contains("Strength"))
-                    { character.Strength += 1; }
-                    else if (ASI1.Contains("Dexterity"))
-                    { character.Dexterity += 1; }
-                    else if (ASI1.Contains("Constitution"))
-                    { character.Constitution += 1; }
-                    else if (ASI1.Contains("Intelligence"))
-                    { character.Intelligence += 1; }
-                    else if (ASI1.Contains("Wisdom"))
-                    { character.Wisdom += 1; }
-                    else { character.Charisma += 1; }
-                    if (ASI2.Contains("Strength"))
-                    { character.Strength += 1; }
-                    else if (ASI2.Contains("Dexterity"))
-                    { character.Dexterity += 1; }
-                    else if (ASI2.Contains("Constitution"))
-                    { character.Constitution += 1; }
-                    else if (ASI2.Contains("Intelligence"))
-                    { character.Intelligence += 1; }
-                    else if (ASI2.Contains("Wisdom"))
-                    { character.Wisdom += 1; }
-                    else { character.Charisma += 1; }
+                    AddModifiersToStats(statID, ASI1, 1);
+                    AddModifiersToStats(statID, ASI2, 1);
                 }
                 db.SaveChanges();
             }
