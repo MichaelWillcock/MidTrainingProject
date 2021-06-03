@@ -17,7 +17,10 @@ User Story - As a creator I want to create a base framework for the application 
 - [x] 1.5 Given that I want my application to reference the database, when I have created the database and gui then I will need to create a business layer.
 - [x] 1.6 Given that I want to test my applciation, when I have testable methods then I shall need a test file in which to write unit tests.
 
+![BS1](https://user-images.githubusercontent.com/81698105/118703336-e621ea00-b80d-11eb-9937-d37fb7fdc963.png)
+Here is my initial project board  with the usre stories for the first sprint in the sprint backlog.
 
+#### Sprint Timeline
 This was to gain an idea of all the work I would have to do in order to meet the projects definition of done, which was also detailed in the project backlog
 (Insert screenshot of definition of done on kanban board)
 Once this was completed I started working on setting up the framework that I would need later on in the project to create the application. This was detailed in the project backlog.
@@ -38,6 +41,9 @@ During this sprint I started well, the erd was fairly straightforward although d
 The wireframes also started well with the exception of the used character sheet wireframe which, because of the amount of data that needs to be added to the page during character creation slowed down the process, it would have been easier to just add a simple block and label it "D&D 5e character sheet".
 
 The sprint goals for tomorrow are to focus on the user registration epic and code methods and create a gui so that a user can create an account that is then stored in the database.
+
+![ES1BS2](https://user-images.githubusercontent.com/81698105/118703133-a8bd5c80-b80d-11eb-8828-c9f6106fbdc8.png)
+This is a screenshot of my project board at the end of my first sprint. I decided to add the user stories I would aim to complete for the next day to the sprint backlog at the end of the sprint.
 
 ## Sprint 2 - 12/05/2021
 User Story 1 - User and Login Registration System
@@ -69,6 +75,9 @@ Learning how to use the pages for naigation was interesting and for the time bei
 - [ ] create unit tests for methods written for registration system. Note. Methods were all manually tested during creation so should pass with minimal alterations.
 
 Work for tomorrow's sprint will involve creating the user interface gui and character viewing platforms. As well as creating unit tests for any methods created to implement the functionality described in the project backlog.
+
+![ES2BS3](https://user-images.githubusercontent.com/81698105/118703452-03ef4f00-b80e-11eb-882f-ec73e28bbf2a.png)
+Here is a screen shot pf my project board at the end of the second sprint. The items in the sprint backlog are for sprint 3.
 
 ## Sprint 3 13/05/2021
 Epic 1 - User home page  - User Story 1 - User Settings
@@ -107,6 +116,9 @@ Created unit tests for all of the methods used in the UserManager and LoginManag
 
 ![Unittests](https://user-images.githubusercontent.com/81698105/118191224-2d8a2e00-b43c-11eb-89d1-dd2a70448ffd.png)
 
+![ES3BS4](https://user-images.githubusercontent.com/81698105/118703575-2c774900-b80e-11eb-9973-2a12f71800ec.png)
+Here is my project board at the end of the sprint demonstrating what sprints I completed and showing the sprint backlog loaded with user stories ready for my 4th sprint.
+
 ## Sprint 4 - 14/05/2021
 ### Work from Sprint 3
 Epic 1 - User home page  - User Story 1 - User Settings
@@ -140,6 +152,10 @@ As a user I want to be able to choose my characters race from a selection.
 ![RemoveCharacter](https://user-images.githubusercontent.com/81698105/118544138-22414600-b74d-11eb-83de-24e06fd23bc3.png)
 
 #### Sprint Retrospective
+Once I had worked out how to make it so that only the characters of a selected user were selected in the previous sprint the major challenge of this sprint was learning how to use the full selection functionality of list boxes so that I sould select characters to view them or delete them. Once this was done I was fairly comfortable coding the methods to open new character windows and delete select characters from the database.
+
+![ES4BS5](https://user-images.githubusercontent.com/81698105/118703727-54ff4300-b80e-11eb-97a2-7842f1f42221.png)
+Here is my project board at the end of the sprint demonstrating what sprints I completed and showing the sprint backlog loaded with user stories ready for my 5th sprint.
 
 ## Sprint 5 - 15/05/2021
 #### Sprint goals from project backlog
@@ -160,6 +176,10 @@ As a user I want to be able to generate my characters 6 core ability scores
 ![NewCharWithStats](https://user-images.githubusercontent.com/81698105/118544427-4ac94000-b74d-11eb-82fd-dee55f850873.png)
 
 #### Sprint Retrospective
+Sprint 5 initially went well. The races that did not have to select which ability scores they needed to increase were easily computed into a method that added the modifiers to the stats. I encountered a significant number of bugs when trying to select which ability scores a Half Elf or Human variant could select to increase however these were not difficult to fix, just numerous and through constant use of the debugger I was able to get the code working.
+
+![ES5BS6](https://user-images.githubusercontent.com/81698105/118703833-6e07f400-b80e-11eb-80ea-1d928d45b911.png)
+Here is my project board at the end of the sprint demonstrating what sprints I completed and showing the sprint backlog loaded with user stories ready for my 6th sprint.
 
 ## Sprint 6 - 16/05/2021
 #### Sprint goals from project backlog
@@ -169,24 +189,44 @@ As a user once my character is fully created I want to be able to view its abili
 #### Sprint Timeline
 ![ShowsGennedStats](https://user-images.githubusercontent.com/81698105/118545699-dabbb980-b74e-11eb-8507-9f2eac8fd502.png)
 #### Sprint Retrospective
+Sprint 6 went smoothly, with little bugs. I had a good idea in my head of what I wanted the character page to look like and so it was relatively simple to implement everything.
+
+The issues that occured were due to the rounding errors caused by rounding negative integers when an ability score turned out to be less than 10, these were switftly resolved when I altered the modifier method to work better for negative numbers.
+
+![ES6BS7](https://user-images.githubusercontent.com/81698105/118703884-78c28900-b80e-11eb-99ea-675ed5bab438.png)
+Here is my project board at the end of the sprint demonstrating what sprints I completed and showing the sprint backlog loaded with user stories ready for my 7th sprint.
 
 ## Sprint 7 - 17/05/2021
 #### Sprint goals from project backlog
 Epic 3 Using a Character - User story 4 - editing hit points
 As a user, when my character takes damage or is healed I want to be able to adjust its hit points accordingly
-- [ ] 4.1 Given that my character has taken damage/is healed and I want to adjust its hit points, when I select its hit points in the text box and edit the value then the new value should be saved to the sheet.
+- [x] 4.1 Given that my character has taken damage/is healed and I want to adjust its hit points, when I select its hit points in the text box and edit the value then the new value should be saved to the sheet.
 Epic 3 Using a Character - User story 5 - Leveling up
 As a user I want to be able to level up my character 
-- [ ] 5.1 Given that I want to level up my character, when I click "set level" then then new hit points and abilities will be added to the character.
+- [x] 5.1 Given that I want to level up my character, when I click "set level" then then new hit points and abilities will be added to the character.
 #### Sprint Timeline
 
 ![Level 1 example](https://user-images.githubusercontent.com/81698105/118549977-1b6a0180-b754-11eb-9c9b-25c26057b21c.png)
 
 ![Level2 example](https://user-images.githubusercontent.com/81698105/118549995-21f87900-b754-11eb-8bf3-856b6e8cf952.png)
 
+![DatabaseClassDiagram](https://user-images.githubusercontent.com/81698105/118708193-554e0d00-b813-11eb-99e3-7ec2ce62d4ac.png)
+Here is the class diagram of the database, it is different from the initial ERD but thankfully I used the method first approach which meant I could easily update the database as needed when new tables and/or variables were required by the data.
+
+![UnitTests](https://user-images.githubusercontent.com/81698105/118708313-7adb1680-b813-11eb-9998-a6344bbecbc8.png)
+Here is a screenshot of all of the unit tests for the project. There should technically be more as the DetailManagerTests should test every race and class combo to fully test the entire functionality of the app. However, with 15 race options and 12 class options and 4 tests for each combination, there wasn't time to write 720 units to test all of those so I wrote out the tests for once specific race class combo and as the code is identical for all of the options, the tests should all pass any way.
+
 #### Sprint Retrospective
+The level up feature and hit point tracker progressed much smoother than I anticipated. Granted it only loads in the ability names and one can only advance a character one level but none the less I was very happy with the work I managed to complete today. With the level up feature being implemented my project now meets its definition of done as described in the project notes. Some user stories remain but due to a poor wording of the definition of done on my part they actually are required to be completed in order for the project to be considered done. The remaining user stories would add even more extensive customisation the the characters, allowing a player to select skills, features, equipment and a background and then use their character interactively with whilst playing a dnd 5e game. This would require significantly more time to be implemented however and due to me overestimating the scope of the project I barely managed to get everything done as it is, so I shall work on these features in my spare time in order to truly finish the project.
+![ES7](https://user-images.githubusercontent.com/81698105/118703932-8415b480-b80e-11eb-8b83-060fdbe9824b.png)
+Here is my project board at the end of the project.
 
 #### Project Retrospective
+As stated previously I very much overestimated the scope of this project when I started. Thankfully, I had chosen a subject that combines my two main hobbies of coding and DnD so despite me putting in long hours every day (often I was coding until 11pm) I did not lose interest in the project nor lose focus over the course of the project. In the future I will aim to better estimate the scope of my project and better suit it to the project specifications so that I will not have as much work to do.
+
+In the future there are huge areas of this project that are available for extension. Completing the remaining user stories to add backgrounds and equipment would be the first port of call along with adding some background music for added immersion. Following that I would start to work on making the sheet fully interactive so that could play the character instead of just observing it. After that there are options to add the rules for magic and subclasses into the app which would further increase its usability. Penultimately, I would add a tutorial option to the character creation feature so that someone who has never played the game before could generate a character. Finally I would learn how to add internet functionality so that multiple users at once could use the app and that a local instance of the app is unecessary so that everything could be used online.
+
+A failing of the code in this project is that to understand some of the functionality, one has to have a basic understanding of the rules of dnd 5e, for this reason I will include a link in pmy project set up, as this is a public repo so in the even that a programmer who has never encountered the game wishes to use it they will be able to understand the full functionality of the app.
 
 ### Project Set-up
 1. Clone Git Repository to your designated folder.
@@ -200,3 +240,4 @@ As a user I want to be able to level up my character
 9. go to the program.cs file located in DnDCharacterBuilderData project and uncomment all lines inside the using statement including the db.SaveChanges() line (These should be lines 12 to 40). Then run the program. This adds the race and class data to the database. Close the console box when it has finished running.
 10. right click on DnDCharacterBuilderGUI and set it as start up project.
 11. Run project and use application.
+12. Some of this code is specifically tailored to the rules of dnd 5e so if any of the code appears arbitrary, it is unlikely to be. The basic rules of the game can be found at the following url - https://dnd.wizards.com/articles/features/basicrules
