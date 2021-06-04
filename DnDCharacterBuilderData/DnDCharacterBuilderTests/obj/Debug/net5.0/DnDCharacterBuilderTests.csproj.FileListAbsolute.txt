@@ -154,3 +154,8 @@ C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\o
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\obj\Debug\net5.0\ref\DnDCharacterBuilderTests.dll
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\obj\Debug\net5.0\DnDCharacterBuilderTests.pdb
 C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\obj\Debug\net5.0\DnDCharacterBuilderTests.genruntimeconfig.cache
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\bin\Debug\net5.0\testhost.exe
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\bin\Debug\net5.0\nunit.engine.core.dll
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\micha\Github\Project\DnDCharacterBuilderData\DnDCharacterBuilderTests\bin\Debug\net5.0\Moq.dll

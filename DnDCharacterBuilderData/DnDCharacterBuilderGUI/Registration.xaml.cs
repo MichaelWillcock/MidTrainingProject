@@ -29,14 +29,14 @@ namespace DnDCharacterBuilderGUI
         }
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-            bool userCheck = _userManager.CheckUserName(UserNameInput.Text, false);
+            bool userCheck = _userManager.CheckUserName(UserNameInput.Text);
             if (UserNameInput.Text.Length < 1 || PasswordInput.Password.Length < 1)
             {
                 MessageBox.Show("Error: Username and/or Password must be at least 1 character");
             }
             else
             {
-                if (userCheck == false)
+                if (userCheck == true)
                 {
                     if (PasswordInput.Password != ConfirmPasswordInput.Password)
                     { MessageBox.Show("Error: Passwords do not match"); }

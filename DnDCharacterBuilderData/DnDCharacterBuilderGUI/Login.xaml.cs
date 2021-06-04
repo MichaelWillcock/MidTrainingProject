@@ -35,8 +35,8 @@ namespace DnDCharacterBuilderGUI
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            bool userNameCheck = _loginManager.IsNameInDatabase(UserNameInput.Text, false);
-            bool passwordMatch = _loginManager.CheckNameToPassword(UserNameInput.Text, PasswordInput.Password, false);
+            bool userNameCheck = _loginManager.IsNameInDatabase(UserNameInput.Text);
+            bool passwordMatch = _loginManager.CheckNameToPassword(UserNameInput.Text, PasswordInput.Password);
             if (userNameCheck == false)
             {
                 if (MessageBox

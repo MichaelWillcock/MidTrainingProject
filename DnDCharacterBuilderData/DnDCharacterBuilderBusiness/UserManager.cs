@@ -9,31 +9,31 @@ namespace DnDCharacterBuilderBusiness
 {
     public class UserManager
     {
+        //Permanant connection to the service
+        private IUserService _service;
+
+        //We require a constructor or two
+        public UserManager()
+        {
+            _service = new UserService();
+        }
+        public UserManager(IUserService service)
+        {
+            if (service == null)
+            {
+                throw new ArgumentException("User Service cannot be null");
+            }
+            _service = service;
+        }
+
         public void AddUser(string userName, string password)
         {
             var newUser = new User() { UserName = userName, Password = password };
-            using(var db = new DnDCharacterBuilderDataContext())
-            {
-                db.Users.Add(newUser);
-                db.SaveChanges();
-            }
+            _service.AddUser(newUser);
         }
-        public bool CheckUserName(string userName, bool x)
+        public bool CheckUserName(string userName)
         {
-            using(var db = new DnDCharacterBuilderDataContext())
-            {
-                var userNameQuery =
-                    from u in db.Users
-                    select u.UserName;
-                foreach (var name in userNameQuery)
-                {
-                    if (name == userName)
-                    {
-                        x = true;
-                    }
-                }
-            }
-            return x;
+            return _service.CheckUserName(userName);
         }
     }
 }

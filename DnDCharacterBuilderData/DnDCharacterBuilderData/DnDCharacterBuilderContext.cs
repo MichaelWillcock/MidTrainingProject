@@ -9,6 +9,15 @@ namespace DnDCharacterBuilderData
 {
     public partial class DnDCharacterBuilderDataContext : DbContext
     {
+        public DnDCharacterBuilderDataContext()
+        {
+
+        }
+        public DnDCharacterBuilderDataContext(DbContextOptions<DnDCharacterBuilderDataContext> options)
+            :base(options)
+        {
+
+        }
         public static DnDCharacterBuilderDataContext Instance { get; } = new DnDCharacterBuilderDataContext();
 
         public DbSet<User> Users { get; set; }

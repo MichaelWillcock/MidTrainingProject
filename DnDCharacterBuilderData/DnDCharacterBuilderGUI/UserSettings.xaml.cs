@@ -36,8 +36,8 @@ namespace DnDCharacterBuilderGUI
         }
         private void ChangeUsername_Click(object sender, RoutedEventArgs e)
         {
-            bool userCheck = _userManager.CheckUserName(UserNameInput.Text, false);
-            if(userCheck == false)
+            bool userCheck = _userManager.CheckUserName(UserNameInput.Text);
+            if(userCheck == true)
             {
                 if(UserNameInput.Text.Length < 1)
                 {

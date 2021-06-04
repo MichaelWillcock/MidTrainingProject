@@ -1,180 +1,116 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DnDCharacterBuilderData;
+using Microsoft.EntityFrameworkCore;
 
 namespace DnDCharacterBuilderBusiness
 {
     public class LoginManager
     {
-        public bool CheckNameToPassword(string userName, string password, bool x)
+        public User SelectedUser { get; set; }
+        public LoggedIn LoggedInUser { get; set; }
+
+        private ILoginService _service;
+
+        //We didn't have a constructor now we have two
+
+        //No argument constructor so that our code doesn't break
+        public LoginManager()
         {
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var passwordQuery =
-                    from u in db.Users
-                    where u.UserName == userName
-                    select u.Password;
-                if (passwordQuery.Contains(password))
-                {
-                    x = true;
-                }
-            }
-            return x;
+            _service = new LoginService();
         }
-        public bool IsNameInDatabase(string userName, bool x)
+        public LoginManager(ILoginService service)
         {
-            using(var db = new DnDCharacterBuilderDataContext())
+            if (service == null)
             {
-                var userNameQuery =
-                    from u in db.Users
-                    select u.UserName;
-                foreach (var name in userNameQuery)
-                {
-                    if (name == userName)
-                    {
-                        x = true;
-                    }
-                }
+                throw new ArgumentException("Customer Service cannot be null");
             }
-            return x;
+            _service = service;
+        }
+        public bool CheckNameToPassword(string userName, string password)
+        {
+            bool matchingNameAndPassword = false;
+            User selectedUser = _service.GetUserByUserName(userName);
+            if (userName == selectedUser.UserName && password == selectedUser.Password)
+            { matchingNameAndPassword = true; }
+            return matchingNameAndPassword;
+        }
+        public bool IsNameInDatabase(string userName)
+        {
+            bool IsNameInDatabase = false;
+            foreach (User user in _service.GetUserList())
+            {
+                if (userName == user.UserName)
+                { IsNameInDatabase = true; break; }
+            }
+            return IsNameInDatabase;
         }
         public void AddUserToLoggedIn(string userName)
         {
-            int x = 0;
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var setupPrimaryKey = db.loggedIns.Count<LoggedIn>();
-                x = setupPrimaryKey++;
-            }
-            int userId = 0;
-            List<string> userDeets = new List<string>();
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var userDetails =
-                from u in db.Users
-                where u.UserName == userName
-                select new {u.UserId, u.UserName, u.Password };
-
-                foreach (var item in userDetails)
-                {
-                    userId = item.UserId;
-                    userDeets.Add(item.UserName);
-                    userDeets.Add(item.Password);
-                }
-            }
-            var loggedIn = new LoggedIn() { LoggedInId = x, UserId = userId, UserName = userDeets[0], Password = userDeets[1] };
-            using(var db = new DnDCharacterBuilderDataContext())
-            {
-                db.loggedIns.Add(loggedIn);
-                db.SaveChanges();
-            }
+            if (_service.CanOnlyBeOneUserLoggedIn() == true)
+            { _service.AddUserToLoggedIn(userName); }
         }
         public void DeleteLoggedInUser()
         {
-            using(var db = new DnDCharacterBuilderDataContext())
-            {
-                var query =
-                    from u in db.loggedIns
-                    select u;
-                foreach (var item in query)
-                {
-                    db.loggedIns.Remove(item);
-                }
-                db.SaveChanges();
-            }
+            _service.DeleteLoggedInUser();
         }
         public string ReturnUserName()
         {
-            string name = "";
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var dbname =
-                    from u in db.loggedIns
-                    select u.UserName;
-                foreach (var item in dbname)
-                {
-                    name += item;
-                }
-            }
+            string name = null;
+            if (_service.CheckThereIsAUserLoggedIn() == true)
+            { name = _service.ReturnUserName(); }
             return name;
-
         }
-        public void ChangeUserName(string newUserName)
+        public bool ChangeUserName(string newUserName)
         {
-            int userID = 0;
-            int logInID = 0;
-            using (var db = new DnDCharacterBuilderDataContext())
+            SelectedUser = _service.GetUserByUserName(ReturnUserName());
+            LoggedInUser = _service.GetLoggedInUserByUserName(ReturnUserName());
+            if (SelectedUser == null || LoggedInUser == null)
             {
-                var userIdQuery =
-                    from u in db.loggedIns
-                    select u.UserId;
-                foreach (var Id in userIdQuery)
-                {
-                    userID = Id;
-                }
+                return false;
             }
-            using (var db = new DnDCharacterBuilderDataContext())
             {
-                var userLogInQuery =
-                    from u in db.loggedIns
-                    select u.LoggedInId;
-                foreach (var Id in userLogInQuery)
-                {
-                    logInID = Id;
-                }
-            }
-            using(var db = new DnDCharacterBuilderDataContext())
-            {
-                var SelectUser = db.Users.Find(userID);
-                SelectUser.UserName = newUserName;
-                db.SaveChanges();
-            }
-            using(var db = new DnDCharacterBuilderDataContext())
-            {
-                var SelectUser = db.loggedIns.Find(logInID);
-                SelectUser.UserName = newUserName;
-                db.SaveChanges();
-            }
+                SelectedUser.UserName = newUserName;
+                LoggedInUser.UserName = newUserName;
 
-
+                try
+                {
+                    _service.SaveUserChanges();
+                }
+                catch (DbUpdateConcurrencyException e) // an exception will be thrown if the database had been updated since last loaded
+                {
+                    Debug.WriteLine($"Error updating {SelectedUser.UserName}");
+                    return false;
+                }
+                return true;
+            }
         }
-        public void ChangePassword(string newPassword)
+        public bool ChangePassword(string newPassword)
         {
-            int userID = 0;
-            int logInID = 0;
-            using (var db = new DnDCharacterBuilderDataContext())
+            SelectedUser = _service.GetUserByUserName(ReturnUserName());
+            LoggedInUser = _service.GetLoggedInUserByUserName(ReturnUserName());
+            if (SelectedUser == null || LoggedInUser == null)
             {
-                var userIdQuery =
-                    from u in db.loggedIns
-                    select u.UserId;
-                foreach (var Id in userIdQuery)
-                {
-                    userID = Id;
-                }
+                return false;
             }
-            using (var db = new DnDCharacterBuilderDataContext())
             {
-                var userLogInQuery =
-                    from u in db.loggedIns
-                    select u.LoggedInId;
-                foreach (var Id in userLogInQuery)
-                {
-                    logInID = Id;
-                }
-            }
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var SelectUser = db.Users.Find(userID);
-                SelectUser.Password = newPassword;
-                db.SaveChanges();
-            }
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var SelectUser = db.loggedIns.Find(logInID);
+                SelectedUser.Password = newPassword;
+                LoggedInUser.Password = newPassword;
 
+                try
+                {
+                    _service.SaveUserChanges();
+                }
+                catch (DbUpdateConcurrencyException e) // an exception will be thrown if the database had been updated since last loaded
+                {
+                    Debug.WriteLine($"Error updating {SelectedUser.UserName}");
+                    return false;
+                }
+                return true;
             }
         }
     }

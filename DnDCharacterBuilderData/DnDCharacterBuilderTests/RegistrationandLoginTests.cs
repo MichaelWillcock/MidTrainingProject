@@ -27,42 +27,13 @@ namespace DnDCharacterBuilderTests
             }
             _loginManager.DeleteLoggedInUser();
         }
-
-        [Test]
-        public void UserCountIncreasesBy1WhenUserAdded()
-        {
-            using (var db = new DnDCharacterBuilderDataContext())
-            {
-                var preAddCount = db.Users.Count();
-                _userManager.AddUser("TestName", "Password");
-                var postAddCount = db.Users.Count();
-                Assert.AreEqual(preAddCount+1, postAddCount);
-            }
-        }
-        [Test]
-        public void UniqueNameDoesNotReturnTrue()
-        {
-            bool expected = false;
-            bool result = false;
-            result = _userManager.CheckUserName("TestName", result);
-            Assert.AreEqual(result, expected);
-        }
-        [Test]
-        public void NonUniqueNameReturnsTrue()
-        {
-            bool expected = true;
-            bool result = false;
-            _userManager.AddUser("TestName", "Password");
-            result = _userManager.CheckUserName("TestName", result);
-            Assert.AreEqual(result, expected);
-        }
         [Test]
         public void MatchingNameAndPasswordReturnsTrue()
         {
             bool expected = true;
             bool result = false;
             _userManager.AddUser("TestName", "Password");
-            result = _loginManager.CheckNameToPassword("TestName", "Password", result);
+            result = _loginManager.CheckNameToPassword("TestName", "Password");
             Assert.AreEqual(expected, result);
         }
         [Test]
@@ -71,7 +42,7 @@ namespace DnDCharacterBuilderTests
             bool expected = true;
             bool result = false;
             _userManager.AddUser("TestName", "Password");
-            result = _loginManager.CheckNameToPassword("TestName", "WordPass", result);
+            result = _loginManager.CheckNameToPassword("TestName", "WordPass");
             Assert.AreNotEqual(expected, result);
         }
         [Test]
@@ -79,7 +50,7 @@ namespace DnDCharacterBuilderTests
         {
             bool expected = false;
             bool result = false;
-            result = _loginManager.IsNameInDatabase("TestName", result);
+            result = _loginManager.IsNameInDatabase("TestName");
             Assert.AreEqual(expected, result);
         }
         [Test]
@@ -88,7 +59,7 @@ namespace DnDCharacterBuilderTests
             bool expected = false;
             bool result = false;
             _userManager.AddUser("TestName", "Password");
-            result = _loginManager.IsNameInDatabase("TestName", result);
+            result = _loginManager.IsNameInDatabase("TestName");
             Assert.AreNotEqual(expected, result);
         }
         [Test]
@@ -140,7 +111,7 @@ namespace DnDCharacterBuilderTests
             _userManager.AddUser("TestName", "Password");
             _loginManager.AddUserToLoggedIn("TestName");
             _loginManager.ChangePassword("NewPassword");
-            result = _loginManager.CheckNameToPassword("TestName", "NewPassword", result);
+            result = _loginManager.CheckNameToPassword("TestName", "NewPassword");
             Assert.AreEqual(expected, result);
         }
         [Test]
