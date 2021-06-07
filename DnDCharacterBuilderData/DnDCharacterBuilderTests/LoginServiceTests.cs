@@ -31,6 +31,66 @@ namespace DnDCharacterBuilderTests
             _sut.AddUser(new User { UserId = 2, UserName = "Frodo", Password = "AndEnter" });
         }
         [Test]
-        public void 
+        public void ReturnsCorrectUserDetails_WhenDatabaseSearchedByUserName()
+        {
+            var result = _asut.GetUserByUserName("Gandalf");
+            int ID = result.UserId;
+            string name = result.UserName;
+            string password = result.Password;
+            Assert.That(ID, Is.EqualTo(1));
+            Assert.That(name, Is.EqualTo("Gandalf"));
+            Assert.That(password, Is.EqualTo("SpeakFriend"));
+        }
+        [Test]
+        public void NoUserLoggedInSoIsLoggedInUserReturnsFalse()
+        {
+            var NoLoggedInUserNotEqual1SoReturnsFalse = _asut.CheckThereIsAUserLoggedIn();
+            var CanAUserBeLoggedInReturnsTrue = _asut.CanOnlyBeOneUserLoggedIn();
+            Assert.That(NoLoggedInUserNotEqual1SoReturnsFalse, Is.False);
+            Assert.That(CanAUserBeLoggedInReturnsTrue, Is.True);
+        }
+        [Test]
+        public void AddAUserToTheLoggedInTableIncreasesTheCountBy1()
+        {
+            var numberBeforeAddition = _context.loggedIns.Count();
+            _asut.AddUserToLoggedIn("Gandalf");
+            var numberAfterAddition = _context.loggedIns.Count();
+            var UserLoggedInCheckReturnsTrue = _asut.CheckThereIsAUserLoggedIn();
+            Assert.That(numberAfterAddition, Is.EqualTo(numberBeforeAddition + 1));
+            Assert.That(UserLoggedInCheckReturnsTrue, Is.True);
+
+            //CleanUp
+            _asut.DeleteLoggedInUser();
+        }
+        [Test]
+        public void DeleteTheUserFromTheLoggedInListDecreasesItsCountByOne()
+        {
+            _asut.AddUserToLoggedIn("Gandalf");
+            var numberBeforeDeletion = _context.loggedIns.Count();
+            _asut.DeleteLoggedInUser();
+            var numberAfterDeletion = _context.loggedIns.Count();
+            var UserLoggedInCheckReturnsFalse = _asut.CheckThereIsAUserLoggedIn();
+            Assert.That(numberBeforeDeletion, Is.EqualTo(numberAfterDeletion + 1));
+            Assert.That(UserLoggedInCheckReturnsFalse, Is.False);
+        }
+        [Test]
+        public void GetUserList_ReturnsAListOfCreatedUsers()
+        {
+            var UserList = _asut.GetUserList();
+            int numberOfUsers = UserList.Count();
+            Assert.That(numberOfUsers, Is.EqualTo(2));
+        }
+        [Test]
+        public void OnceAUserIsLoggedInTheUserNameOfThatUserIsReturned()
+        {
+            _asut.AddUserToLoggedIn("Gandalf");
+            var result = _asut.GetLoggedInUserByUserName("Gandalf");
+            int ID = result.UserId;
+            string name = result.UserName;
+            string password = result.Password;
+            Assert.That(ID, Is.EqualTo(1));
+            Assert.That(name, Is.EqualTo("Gandalf"));
+            Assert.That(password, Is.EqualTo("SpeakFriend"));
+        }
     }
 }
